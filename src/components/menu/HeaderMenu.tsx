@@ -1,7 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import AuthMenu from './AuthMenu';
 import MenuItemsHeader from './MenuItems';
+import AuthMenu from './AuthMenu';
 
 interface IHeaderMenuProps {
     showAuthMenu: boolean;

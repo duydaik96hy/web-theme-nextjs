@@ -1,50 +1,35 @@
 "use client";
 
 import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import Link from 'next/link';
 
 type MenuItems = Required<MenuProps>['items'][number];
 
 const items: MenuItems[] = [
   {
-    label: 'Chung cư',
     key: 'chungcu',
+    label: (
+      <Link href="/du-an/chung-cu">
+        Chung cư
+      </Link>
+    )
   },
   {
-    label: 'Căn hộ',
     key: 'canho',
-    disabled: false,
-  },
-  {
-    label: 'Nhà ở',
-    key: 'nha0',
-    children: [
-      {
-        type: 'group',
-        label: 'Item 1',
-        children: [
-          { label: 'Option 1', key: 'setting:1' },
-          { label: 'Option 2', key: 'setting:2' },
-        ],
-      },
-      {
-        type: 'group',
-        label: 'Item 2',
-        children: [
-          { label: 'Option 3', key: 'setting:3' },
-          { label: 'Option 4', key: 'setting:4' },
-        ],
-      },
-    ],
+    label: (
+      <Link href="/du-an/can-ho">
+        Căn hộ
+      </Link>
+    )
   },
   {
     key: 'Phòng trọ',
     label: (
-      <a href="/" target="_blank" rel="noopener noreferrer">
+      <Link href="/du-an/phong-tro">
         Phòng trọ
-      </a>
+      </Link>
     ),
   },
 ];

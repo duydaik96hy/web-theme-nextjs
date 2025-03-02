@@ -54,7 +54,7 @@ const Footer = (props: IFooterProps) => {
             <div className="flex justify-center lg:justify-start">
               <a href="#" target="_blank" rel="noreferrer">
                 <img
-                  src="/static/img/logo.png"
+                  src="/static/img/logo.png" 
                   alt="fanpage"
                   width={271}
                   height={135}

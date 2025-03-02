@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import HeaderMenu from '@/components/menu/HeaderMenu';
+import HeaderMenu from '@/components/Menu/HeaderMenu';
 import { headers } from 'next/headers';
 import { Roboto_Condensed } from 'next/font/google';
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Providers from "./providers";
-import Footer from "@/components/shared/Footer";
+import Footer from "@/components/Shared/Footer";
 
 const roboto = Roboto_Condensed({ subsets: ['latin'] });
 
