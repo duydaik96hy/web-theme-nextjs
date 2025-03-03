@@ -12,20 +12,21 @@ const HomePage = () => {
     const postId = params.id as string;
 
     return (
-        <Layout style={{padding: '0 14px 24px'}}>
+        <div style={{padding: '0 14px 24px'}}>
             <Breadcrumb
                 items={[{title: 'Trang chủ', onClick: () => window.location.href = '/'},
-                    {title: 'Chi tiết'}]}
+                        {title: 'Chi tiết'},
+                    ]}
                 style={{margin: '16px 0'}}
                 separator=">"
             >
             </Breadcrumb>
             <Content>
                 <Col span={24}>
-                <PostDetail postId={postId} />
+                    <PostDetail postId={postId} />
                 </Col>
             </Content>
-        </Layout>
+        </div>
     );
 };
 

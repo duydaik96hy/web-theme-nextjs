@@ -127,7 +127,7 @@ const HomePage = () => {
                     total_items: 10,
                 });
                 setIsLoading(false);
-            }, 2500);
+            }, 1500);
         };
         fetchData();
     }, [query, paginationPost.current_page]);
@@ -136,50 +136,47 @@ const HomePage = () => {
         <div style={{ padding: "0 12px 24px", height: "100vh", overflow: "hidden" }}>
             <Content>
                 <Row gutter={10}>
-                    <Col span={13}>
+                    <Col span={13} className='w-full'>
                         <Typography>
                             <Typography.Title level={2}>{category}</Typography.Title>
                         </Typography>
                         <Space direction="vertical" className="w-full">
                             <Col xs={24} md={24}>
                                 {/* <h3 className="text-xl font-semibold text-center m-4">{category}</h3> */}
-                                {isLoading ? (
-                                    <Skeleton active avatar paragraph={{ rows: 4 }} />
-                                ) : posts.length > 0 ? (
-                                    <Col>
+                                <Col>
+                                    {isLoading ? (
+                                        <Skeleton active avatar paragraph={{ rows: 4 }} />
+                                    ) : (
                                         <PostItemHor post={posts[0]} />
-                                        <Row gutter={10}>
-                                            <Col span={8}>
+                                    )}
+                                    <Row gutter={10}>
+
+                                        <Col span={8}>
+                                            {isLoading ? (
+                                                <Skeleton active avatar paragraph={{ rows: 4 }} />
+                                            ) : (
                                                 <PostItemVer post={posts[1]} />
-                                            </Col>
-                                            <Col span={8}>
+                                            )}
+                                        </Col><Col span={8}>
+                                            {isLoading ? (
+                                                <Skeleton active avatar paragraph={{ rows: 4 }} />
+                                            ) : (
                                                 <PostItemVer post={posts[2]} />
-                                            </Col>
-                                            <Col span={8}>
+                                            )}
+                                        </Col><Col span={8}>
+                                            {isLoading ? (
+                                                <Skeleton active avatar paragraph={{ rows: 4 }} />
+                                            ) : (
                                                 <PostItemVer post={posts[3]} />
-                                            </Col>
-                                        </Row>
+                                            )}
+                                        </Col>
+                                    </Row>
+                                    {isLoading ? (
+                                        <Skeleton active avatar paragraph={{ rows: 4 }} />
+                                    ) : (
                                         <PostListHor allowRedirect category={category} posts={posts} />
-                                    </Col>
-                                ) : (
-                                    <p style={{ textAlign: "center" }}>Không có bài nào</p>
-                                )}
-                                {/* <div style={{ textAlign: "center", margin: "20px 0" }}>
-                                    <Pagination
-                                        total={paginationPost.total_items}
-                                        current={paginationPost.current_page}
-                                        pageSize={paginationPost.page_size}
-                                        showTotal={(total) => `Tổng ${total} bài đăng`}
-                                        onChange={(page, pageSize) => {
-                                            setPaginationPost({
-                                                ...paginationPost,
-                                                current_page: page,
-                                                page_size: pageSize,
-                                            });
-                                        }}
-                                        className='flex justify-center'
-                                    /> */}
-                                {/* </div> */}
+                                    )}
+                                </Col>
                             </Col>
                         </Space>
                     </Col>
@@ -187,7 +184,11 @@ const HomePage = () => {
                         <Space direction="vertical" className="w-full">
                             <Col xs={24} md={24}>
                                 <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3>
-                                <PostListVer allowRedirect category={category} posts={posts.slice(0,3)} />
+                                {isLoading ? (
+                                    <Skeleton active avatar paragraph={{ rows: 4 }} />
+                                ) : (
+                                    <PostListVer allowRedirect category={category} posts={posts.slice(0, 3)} />
+                                )}
                                 <Divider />
                                 <img src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50928_banner_moi_quang_cao_01_14564616.jpg" alt="ads" />
                             </Col>

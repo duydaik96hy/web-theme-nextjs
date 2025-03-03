@@ -21,7 +21,7 @@ const PostDescription = ({ post }: IPostDescriptionProps) => {
                     <Col xs={24} sm={16} md={16} lg={16}>
                         <PostDescriptionText post={post} />
                     </Col>
-                    <Col xs={24} sm={8} md={8} lg={8}>
+                    {/* <Col xs={24} sm={8} md={8} lg={8}>
                         <div className="flex items-center justify-center">
                             <img
                                 src={post?.banner_images[0] ?? "/static/img/logo.png"}
@@ -29,9 +29,8 @@ const PostDescription = ({ post }: IPostDescriptionProps) => {
                                 className="object-cover w-[219px] h-[219px] rounded-2xl"
                             />
                         </div>
-                    </Col>
+                    </Col> */}
                 </Row>
-                {/* <div className="sm:h-auto md:h-72"></div> */}
             </Col>
         </div>
     );

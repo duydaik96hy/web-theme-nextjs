@@ -3,21 +3,28 @@ import { Card, Col } from 'antd';
 import { IPost } from '@/types/post';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { getLocaleDateTime } from '@/helpers/time';
+import { convertTitleToSlug } from '@/helpers/string';
+import { useRouter } from 'next/navigation';
 
 export interface IPostListHorProps {
-    onClick?: (post: IPost) => void;
     category?: string;
     post: IPost;
 }
 
-const PostListHor = ({ onClick, category, post }: IPostListHorProps) => {
+const PostListHor = ({ category, post }: IPostListHorProps) => {
+    const router = useRouter();
+
+    const onClick = (post: IPost) => {
+        const slug = convertTitleToSlug(post.title);
+        router.push(`${category}/${slug}-${post.id}`);
+    };
 
     return (
         <Card
             onClick={() => {
                 onClick?.(post);
             }}
-            className={`${onClick ? 'cursor-pointer' : ''}`}
+            className={'cursor-pointer'}
         >
             <div className="grid grid-cols-1 text-center md:text-left md:grid-cols-12 gap-4">
                 <Col className="flex justify-center md:col-span-4">
@@ -25,7 +32,7 @@ const PostListHor = ({ onClick, category, post }: IPostListHorProps) => {
                         <img
                             src={post?.banner_images[0] ?? "/static/img/logo.png"}
                             alt="post logo"
-                            // className="object-cover w-[300px] h-[180px] rounded-1xl"
+                        // className="object-cover w-[300px] h-[180px] rounded-1xl"
                         />
                     </div>
                 </Col>

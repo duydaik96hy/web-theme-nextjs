@@ -1,9 +1,7 @@
 import React from 'react';
-import PostItemVer from './PostItemHor';
-import { Col, Row, Divider } from 'antd';
-import { useRouter } from 'next/navigation';
+import PostItemHor from './PostItemHor';
+import { Col, Row } from 'antd';
 import { IPost } from '@/types/post';
-import { convertTitleToSlug } from '@/helpers/string';
 
 export interface IPostListHorProps {
     allowRedirect?: boolean;
@@ -12,18 +10,12 @@ export interface IPostListHorProps {
 }
 
 const PostListHor = ({ allowRedirect = false, category, posts }: IPostListHorProps) => {
-    const router = useRouter();
-
-    const onClick = (post: IPost) => {
-        const slug = convertTitleToSlug(post.title);
-        router.push(`${category}/${slug}-${post.id}`);
-    };
     return (
         <Row gutter={[16, 16]} className="w-full">
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Col span={24} key={post.id}>
-                        <PostItemVer post={post} category={category} onClick={() => onClick(post)}  />
+                        <PostItemHor post={post} category={category}  />
                     </Col>
                 ))
             ) : (

@@ -3,27 +3,35 @@ import { Card, Col, Space } from 'antd';
 import { IPost } from '@/types/post';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { getLocaleDateTime } from '@/helpers/time';
+import { useRouter } from 'next/navigation';
+import { convertTitleToSlug } from '@/helpers/string';
 
 export interface IPostListVerProps {
-    onClick?: (post: IPost) => void;
     category?: string;
     post: IPost;
 }
 
-const PostListVer = ({ onClick, category, post }: IPostListVerProps) => {
+const PostListVer = ({ category, post }: IPostListVerProps) => {
+    const router = useRouter();
+
+    const onClick = (post: IPost) => {
+        const slug = convertTitleToSlug(post.title);
+        router.push(`${category}/${slug}-${post.id}`);
+    };
+
     return (
         <Card
             onClick={() => {
                 onClick?.(post);
             }}
-            className={`${onClick ? 'cursor-pointer' : ''}`}
+            className={'cursor-pointer'}
         >
             <Col className="justify-center">
                 <Space direction="vertical" className="w-full">
                     <img
                         src={post?.banner_images[0] ?? "/static/img/logo.png"}
                         alt="post logo"
-                        // className="object-cover w-[300px] h-[180px] rounded-1xl"
+                    // className="object-cover w-[300px] h-[180px] rounded-1xl"
                     />
                     <h3
                         className="font-semibold text-lg overflow-hidden text-ellipsis"

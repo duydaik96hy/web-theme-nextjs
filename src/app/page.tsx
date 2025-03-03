@@ -119,7 +119,11 @@ const HomePage = () => {
             <Space direction="vertical" className="w-full">
               <Col xs={24} md={24}>
                 {/* <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3> */}
-                <PostListHor allowRedirect category={undefined} posts={posts} />
+                {isLoading ? (
+                  <Skeleton active avatar paragraph={{ rows: 4 }} />
+                ) : (
+                  <PostListHor allowRedirect category={undefined} posts={posts} />
+                )}
               </Col>
             </Space>
           </Col>
@@ -149,7 +153,11 @@ const HomePage = () => {
                 <img src='https://mediabhy.mediatech.vn/upload/image/202303/medium/49885_hoc_tap_hcm_300x250_2_14222303.jpg' alt='ads' />
                 <Divider />
                 <h3 className="text-xl font-semibold text-center m-4">Tin xem nhiều</h3>
-                <PostListVer allowRedirect category={undefined} posts={posts} />
+                {isLoading ? (
+                  <Skeleton active avatar paragraph={{ rows: 4 }} />
+                ) : (
+                  <PostListVer allowRedirect category={undefined} posts={posts} />
+                )}
               </Col>
             </Space>
           </Col>
