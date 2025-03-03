@@ -7,16 +7,15 @@ import { useRouter } from 'next/navigation';
 import { convertTitleToSlug } from '@/helpers/string';
 
 export interface IPostListVerProps {
-    category?: string;
     post: IPost;
 }
 
-const PostListVer = ({ category, post }: IPostListVerProps) => {
+const PostListVer = ({ post }: IPostListVerProps) => {
     const router = useRouter();
 
     const onClick = (post: IPost) => {
         const slug = convertTitleToSlug(post.title);
-        router.push(`${category}/${slug}-${post.id}`);
+        router.push(`${post.category}/${slug}-${post.id}`);
     };
 
     return (

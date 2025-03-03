@@ -106,7 +106,7 @@ const HomePage = () => {
           total_items: 10,
         });
         setIsLoading(false);
-      }, 2500);
+      }, 1500);
     };
     fetchData();
   }, [query, paginationPost.current_page]);
@@ -122,7 +122,7 @@ const HomePage = () => {
                 {isLoading ? (
                   <Skeleton active avatar paragraph={{ rows: 4 }} />
                 ) : (
-                  <PostListHor allowRedirect category={undefined} posts={posts} />
+                  <PostListHor posts={posts} />
                 )}
               </Col>
             </Space>
@@ -140,7 +140,6 @@ const HomePage = () => {
                   <Col>
                     <PostItemVer post={posts[0]} />
                   </Col>
-                  // <PostListHor allowRedirect category={undefined} posts={posts} />
                 ) : (
                   <p style={{ textAlign: "center" }}>Không có bài nào</p>
                 )}
@@ -156,7 +155,7 @@ const HomePage = () => {
                 {isLoading ? (
                   <Skeleton active avatar paragraph={{ rows: 4 }} />
                 ) : (
-                  <PostListVer allowRedirect category={undefined} posts={posts} />
+                  <PostListVer posts={posts} />
                 )}
               </Col>
             </Space>

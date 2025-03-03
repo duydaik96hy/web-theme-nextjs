@@ -174,7 +174,7 @@ const HomePage = () => {
                                     {isLoading ? (
                                         <Skeleton active avatar paragraph={{ rows: 4 }} />
                                     ) : (
-                                        <PostListHor allowRedirect category={category} posts={posts} />
+                                        <PostListHor posts={posts} />
                                     )}
                                 </Col>
                             </Col>

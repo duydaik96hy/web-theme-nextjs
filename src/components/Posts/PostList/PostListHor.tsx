@@ -4,18 +4,16 @@ import { Col, Row } from 'antd';
 import { IPost } from '@/types/post';
 
 export interface IPostListHorProps {
-    allowRedirect?: boolean;
-    category?: string;
     posts: IPost[];
 }
 
-const PostListHor = ({ allowRedirect = false, category, posts }: IPostListHorProps) => {
+const PostListHor = ({ posts }: IPostListHorProps) => {
     return (
         <Row gutter={[16, 16]} className="w-full">
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Col span={24} key={post.id}>
-                        <PostItemHor post={post} category={category}  />
+                        <PostItemHor post={post} />
                     </Col>
                 ))
             ) : (

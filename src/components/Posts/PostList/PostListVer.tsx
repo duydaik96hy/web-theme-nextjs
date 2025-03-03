@@ -4,18 +4,16 @@ import { Col, Row } from 'antd';
 import { IPost } from '@/types/post';
 
 export interface IPostListVerProps {
-    allowRedirect?: boolean;
-    category?: string;
     posts: IPost[];
 }
 
-const PostListVer = ({ allowRedirect = false, category, posts }: IPostListVerProps) => {
+const PostListVer = ({ posts }: IPostListVerProps) => {
     return (
         <Col span={24} className="w-full">
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Row gutter={[8, 8]} key={post.id}>
-                        <PostItemVer post={post} category={category}  />
+                        <PostItemVer post={post}  />
                     </Row>
                 ))
             ) : (
