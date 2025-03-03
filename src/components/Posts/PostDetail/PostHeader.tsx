@@ -40,20 +40,6 @@ const PostHeader = ({ post }: IPostHeaderProps) => {
 				<div className='flex'>
 					<Badge status="success" style={{ margin: '4px' }} />
 					<span className="ml-1 mt-1 mr-1">Đang mở</span>
-					{post?.tags && (
-						<Space className="">
-							{(post.tags?.split(',') || [])
-								.sort((a, b) => (a === 'featured' ? -1 : b === 'featured' ? 1 : 0))
-								.map((tag, index) => (
-									<MiniTag
-										key={index}
-										text={PostTagsMap[tag] || tag}
-										color={getTagColor(tag).backgroundColor}
-										colorText={getTagColor(tag).color}
-									/>
-								))}
-						</Space>
-					)}
 					<div className="flex">
 						<DotLottieReact
 							src="https://lottie.host/316847f3-5fa8-4fe3-933f-2f7a632700f6/Atbqu87pIs.lottie"
@@ -64,7 +50,7 @@ const PostHeader = ({ post }: IPostHeaderProps) => {
 								height: "30px",
 							}}
 						/>
-						<span className="ml-1 mt-1 mb-1"> Giá: {getFormatMoney(post?.base_information.price ?? 0)}đ</span>
+						<span className="ml-1 mt-1 mb-1">Danh mục: {post?.category}</span>
 						<DotLottieReact
 							src="https://lottie.host/316847f3-5fa8-4fe3-933f-2f7a632700f6/Atbqu87pIs.lottie"
 							loop

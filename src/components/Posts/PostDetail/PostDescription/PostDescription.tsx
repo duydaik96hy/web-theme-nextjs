@@ -24,7 +24,7 @@ const PostDescription = ({ post }: IPostDescriptionProps) => {
                     <Col xs={24} sm={8} md={8} lg={8}>
                         <div className="flex items-center justify-center">
                             <img
-                                src={post?.images[0] ?? "/static/img/logo.png"}
+                                src={post?.banner_images[0] ?? "/static/img/logo.png"}
                                 alt="post logo"
                                 className="object-cover w-[219px] h-[219px] rounded-2xl"
                             />

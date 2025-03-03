@@ -1,49 +1,24 @@
-export interface IAddress {
-    ward: string;
-    district: string;
-    city: string;
-    region: string;
-    raw_address: string;
-    id: string;
-}
-
-export interface IBaseInfomaion {
-    price: number;
-    area: number;
-    number_room: number;
-    number_restroom: number;
-    description: string;
-    id: string;
-}
-
-export interface ISellerInformation {
-    name: string;
-    phone: string;
-    email: string;
-    id: string;
-}
-
 export interface IPost {
     id: string;
     title: string;
     description: string;
-    type: string;
-    images: string[];
-    sale_type: string;
-    address: IAddress;
-    base_information: IBaseInfomaion;
-    seller_information: ISellerInformation;
-    tags?: string;
-    created_at: string;
-    updated_at: string;
+    content: string;
+    banner_images: string[];
+    views: number;
+    keyword: string;
+    category: string;
+    web: string;
+    random_key: number;
+    source: string;
+    deleted_at?: string;
+    created_at?: string;
+    updated_at?: string;
 }
 
 export interface IPostFilter {
-    search?: string;
-    status?: string;
-    title?: string;
-    tag?: string;
-    type?: string;
+    page?: number;
+    limit?: number;
+    web_id?: string;
 }
 
 export interface IPagination {

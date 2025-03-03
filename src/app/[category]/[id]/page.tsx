@@ -15,7 +15,6 @@ const HomePage = () => {
         <Layout style={{padding: '0 14px 24px'}}>
             <Breadcrumb
                 items={[{title: 'Trang chủ', onClick: () => window.location.href = '/'},
-                    {title: 'Dự án', onClick: () => window.location.href = '/du-an'},
                     {title: 'Chi tiết'}]}
                 style={{margin: '16px 0'}}
                 separator=">"

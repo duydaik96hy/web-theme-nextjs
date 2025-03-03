@@ -11,7 +11,7 @@ const items: MenuItems[] = [
   {
     key: 'chungcu',
     label: (
-      <Link href="/du-an/chung-cu">
+      <Link href="/chung-cu">
         Chung cư
       </Link>
     )
@@ -19,7 +19,7 @@ const items: MenuItems[] = [
   {
     key: 'canho',
     label: (
-      <Link href="/du-an/can-ho">
+      <Link href="/can-ho">
         Căn hộ
       </Link>
     )
@@ -27,7 +27,7 @@ const items: MenuItems[] = [
   {
     key: 'Phòng trọ',
     label: (
-      <Link href="/du-an/phong-tro">
+      <Link href="/phong-tro">
         Phòng trọ
       </Link>
     ),

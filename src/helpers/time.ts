@@ -4,7 +4,7 @@ export const getLocaleTime = (date?: string, format = "DD/MM/YYYY" ) => {
   return date ? dayjs(date).format(format) : dayjs().format(format);
 }
 
-export const getLocaleDateTime = (date?: string, format = "HH:mm DD/MM/YYYY" ) => {
+export const getLocaleDateTime = (date?: string, format = "DD-MM-YYYY HH:MM" ) => {
   return date ? dayjs(date).format(format) : dayjs().format(format);
 }
 

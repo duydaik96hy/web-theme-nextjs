@@ -8,7 +8,7 @@ interface IHeaderMenuProps {
 const HeaderMenu = ({ showAuthMenu }: IHeaderMenuProps) => {
     return (
         <header
-            className="h-14 grid grid-cols-8 fixed top-0 left-0 right-0 z-50 bg-white"
+            className="h-14 grid grid-cols-8 fixed top-0 left-2 right-2 z-50"
         >
             <div className="col-span-2">
                 <div className="sm:ml-4 md:ml-8 h-full flex items-center pb-2">

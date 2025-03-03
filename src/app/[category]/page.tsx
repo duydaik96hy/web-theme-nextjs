@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Layout, Breadcrumb, Pagination, Space, Button, Grid, Skeleton } from "antd";
-import PostList from '@/components/Posts/PostList/PostList';
+import { Row, Col, Layout, Pagination, Space, Grid, Skeleton, Typography } from "antd";
+import PostListVer from '@/components/Posts/PostList/PostListVer';
 import { Content } from "antd/es/layout/layout";
 import { IPost, IPostFilter } from '@/types/post';
 import { useParams } from 'next/navigation';
+import PostListHor from '@/components/Posts/PostList/PostListHor';
 
 const { useBreakpoint } = Grid;
 
@@ -35,75 +36,41 @@ const HomePage = () => {
                     "data": {
                         "data": [
                             {
-                                "type": "sale",
-                                "images": [
+                                "banner_images": [
                                     "https://media.tapchitaichinh.vn/w1480/images/upload/2024/02/21/bds-ha-noi-17080891791471270135244.jpg"
                                 ],
-                                "sale_type": "apartment",
-                                "address": {
-                                    "ward": "My dinh",
-                                    "district": "Nam tu Liem",
-                                    "city": "Ha noi",
-                                    "region": "Mien Bac",
-                                    "raw_address": "ngo 108 duong my dinh",
-                                    "id": "66701077c6f65b29f334850b"
-                                },
                                 "title": "Nha can ban gap nhe",
-                                "description": "nha rong, thoang mat, co nha ve sinh",
-                                "base_information": {
-                                    "price": 10000000,
-                                    "area": 1000,
-                                    "number_room": 4,
-                                    "number_restroom": 3,
-                                    "description": "this is a beatiful villa",
-                                    "id": "66701077c6f65b29f334850a"
-                                },
-                                "seller_information": {
-                                    "name": "Ha van truong",
-                                    "phone": "01239232",
-                                    "email": "adam@gmail.com",
-                                    "id": "66701077c6f65b29f3348509"
-                                },
-                                "deleted_at": null,
+                                "content": "nha rong, thoang mat, co nha ve sinh",
+                                "description": "nha rong, thoang mat, co nha ve sinh thoang mat",
+                                "views": 0,
+                                "keyword": "nha ban",
+                                "category": "nha",
+                                "web": "https://www.google.com",
+                                "random_key": 0,
+                                "source": "https://www.google.com",
+                                "deleted_at": "",
+                                "created_at": "2024-06-17 16:22:06",
+                                "updated_at": "2024-06-17 17:31:19",
+                                "id": "6670003e4dfde8ecf1fcf3267"
+                            },
+                            {
+                                "banner_images": [
+                                    "https://media.tapchitaichinh.vn/w1480/images/upload/2024/02/21/bds-ha-noi-17080891791471270135244.jpg"
+                                ],
+                                "title": "Nha can ban gap nhe",
+                                "content": "nha rong, thoang mat, co nha ve sinh",
+                                "description": "nha rong, thoang mat, co nha ve sinh thoang mat",
+                                "views": 0,
+                                "keyword": "nha ban",
+                                "category": "nha",
+                                "web": "https://www.google.com",
+                                "random_key": 0,
+                                "source": "https://www.google.com",
+                                "deleted_at": "",
                                 "created_at": "2024-06-17 16:22:06",
                                 "updated_at": "2024-06-17 17:31:19",
                                 "id": "6670003e4dfde8ecf1fcf326"
-                            },
-                            {
-                                "type": "sale",
-                                "images": [
-                                    "https://media.tapchitaichinh.vn/w1480/images/upload/2024/02/21/bds-ha-noi-17080891791471270135244.jpg"
-                                ],
-                                "sale_type": "apartment",
-                                "address": {
-                                    "ward": "Khuong Dinh",
-                                    "district": "Thanh Xuan",
-                                    "city": "Ha noi",
-                                    "region": "Mien Bac",
-                                    "raw_address": "ngo 108 duong my dinh",
-                                    "id": "66701077c6f65b29f3788590"
-                                },
-                                "title": "Nha dep trung tam thanh pho",
-                                "description": "nha rong, thoang mat, co nha ve sinh",
-                                "base_information": {
-                                    "price": 80000000,
-                                    "area": 1000,
-                                    "number_room": 4,
-                                    "number_restroom": 3,
-                                    "description": "this is a beatiful villa",
-                                    "id": "66701077c6f65b29904878a"
-                                },
-                                "seller_information": {
-                                    "name": "Ha van truong",
-                                    "phone": "01239232",
-                                    "email": "adam@gmail.com",
-                                    "id": "66701077c6f65b29f3567509"
-                                },
-                                "deleted_at": null,
-                                "created_at": "2024-06-17 16:22:06",
-                                "updated_at": "2024-06-17 17:31:19",
-                                "id": "6670003e4dfde8e7809fcf390"
-                            },
+                            }
                         ],
                         "pagination": {
                             "total": 12,
@@ -129,25 +96,19 @@ const HomePage = () => {
 
     return (
         <Layout style={{ padding: "0 12px 24px", height: "100vh", overflow: "hidden" }}>
-            <Breadcrumb
-                items={[
-                    { title: "Trang chủ", onClick: () => (window.location.href = "/") },
-                    { title: "Dự án", onClick: () => (window.location.href = "/du-an") },
-                    { title: "Căn hộ" },
-                ]}
-                style={{ margin: "16px 0" }}
-                separator=">"
-            />
             <Content style={{ height: "calc(100vh - 96px)", overflowY: "auto", overflowX: "hidden" }}>
                 <Row gutter={10}>
-                    <Col span={24}>
+                    <Col span={16}>
+                        <Typography>
+                            <Typography.Title level={2}>{category}</Typography.Title>
+                        </Typography>
                         <Space direction="vertical" className="w-full">
-                            <Col xs={24} md={12}>
+                            <Col xs={24} md={24}>
                                 {/* <h3 className="text-xl font-semibold text-center m-4">{category}</h3> */}
                                 {isLoading ? (
                                     <Skeleton active avatar paragraph={{ rows: 4 }} />
                                 ) : posts.length > 0 ? (
-                                    <PostList allowRedirect category={category} posts={posts} />
+                                    <PostListHor allowRedirect category={category} posts={posts} />
                                 ) : (
                                     <p style={{ textAlign: "center" }}>Không có bài nào</p>
                                 )}
@@ -167,6 +128,14 @@ const HomePage = () => {
                                         className='flex justify-center'
                                     />
                                 </div>
+                            </Col>
+                        </Space>
+                    </Col>
+                    <Col span={8}>
+                        <Space direction="vertical" className="w-full">
+                            <Col xs={24} md={12}>
+                                <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3>
+                                <PostListVer allowRedirect category={category} posts={posts} />
                             </Col>
                         </Space>
                     </Col>
