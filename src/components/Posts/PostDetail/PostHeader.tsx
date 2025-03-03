@@ -13,22 +13,6 @@ export interface IPostHeaderProps {
 }
 
 const PostHeader = ({ post }: IPostHeaderProps) => {
-	const router = useRouter();
-	const getTagColor = (tag: string) => {
-		switch (tag) {
-			case 'featured':
-				return { color: 'white', backgroundColor: '#EC1A2D' };
-			case 'urgent':
-				return { color: '#D84A4A' };
-			case 'hot':
-				return { color: '#FF7A1B' };
-			case 'new':
-				return { color: '#9C4BFF' };
-			default:
-				return {};
-		}
-	};
-
 	return (
 		<Row>
 			<Col span={24}>

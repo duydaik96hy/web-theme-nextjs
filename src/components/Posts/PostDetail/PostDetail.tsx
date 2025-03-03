@@ -1,4 +1,4 @@
-import { FloatButton, Skeleton, Spin, Tabs } from 'antd';
+import { Col, FloatButton, Skeleton, Spin, Tabs } from 'antd';
 import React, { useEffect, useState } from 'react';
 import PostHeader from './PostHeader';
 import type { TabsProps } from 'antd';
@@ -54,16 +54,16 @@ const JobDetail = ({ postId }: IJobDetailProps) => {
     }, []);
 
     return (
-        <div>
+        <Col className="p-4 w-full">
             {isLoading ? (
-                <Skeleton active avatar paragraph={{ rows: 10 }} />
+                <Skeleton active avatar paragraph={{ rows: 8, width: 600 }} />
             ) : (
                 <>
                     <PostHeader post={post!} />
                     <PostDescription post={post!} />
                 </>
             )}
-        </div>
+        </Col>
     );
 };
 
