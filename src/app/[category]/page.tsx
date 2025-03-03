@@ -133,8 +133,8 @@ const HomePage = () => {
     }, [query, paginationPost.current_page]);
 
     return (
-        <Layout style={{ padding: "0 12px 24px", overflow: "hidden" }}>
-            <Content style={{ height: "calc(100vh)", overflowY: "auto", overflowX: "auto" }}>
+        <div style={{ padding: "0 12px 24px", height: "100vh", overflow: "hidden" }}>
+            <Content>
                 <Row gutter={10}>
                     <Col span={13}>
                         <Typography>
@@ -195,7 +195,7 @@ const HomePage = () => {
                     </Col>
                 </Row>
             </Content>
-        </Layout>
+        </div>
     );
 
 };

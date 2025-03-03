@@ -112,10 +112,10 @@ const HomePage = () => {
   }, [query, paginationPost.current_page]);
 
   return (
-    <Layout style={{ padding: "0 12px 24px", height: "100vh", overflow: "auto" }}>
-      <Content style={{ height: "calc(100vh)", overflowY: "auto", overflowX: "auto" }}>
+    <div style={{ padding: "0 12px 24px", height: "100vh", overflow: "hidden" }}>
+      <Content>
         <Row gutter={0}>
-          <Col span={5}>
+          <Col span={8}>
             <Space direction="vertical" className="w-full">
               <Col xs={24} md={24}>
                 {/* <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3> */}
@@ -123,7 +123,7 @@ const HomePage = () => {
               </Col>
             </Space>
           </Col>
-          <Col span={10}>
+          <Col span={12}>
             <Space direction="vertical" className="w-full">
               <Col xs={24} md={24}>
                 {/* <h3 className="text-xl font-semibold text-center m-4">{category}</h3> */}
@@ -143,7 +143,7 @@ const HomePage = () => {
               </Col>
             </Space>
           </Col>
-          <Col span={3}>
+          <Col span={4}>
             <Space direction="vertical" className="w-full">
               <Col xs={24} md={24}>
                 <img src='https://mediabhy.mediatech.vn/upload/image/202303/medium/49885_hoc_tap_hcm_300x250_2_14222303.jpg' alt='ads' />
@@ -155,7 +155,7 @@ const HomePage = () => {
           </Col>
         </Row>
       </Content>
-    </Layout>
+    </div>
   );
 
 };
