@@ -25,7 +25,7 @@ const PostListHor = ({ onClick, category, post }: IPostListHorProps) => {
                         <img
                             src={post?.banner_images[0] ?? "/static/img/logo.png"}
                             alt="post logo"
-                            className="object-cover w-[300px] h-[180px] rounded-1xl"
+                            // className="object-cover w-[300px] h-[180px] rounded-1xl"
                         />
                     </div>
                 </Col>

@@ -15,11 +15,11 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
 
     return (
         <ConfigProvider>
-            <div className="h-screen w-screen flex overflow-hidden">
+            <div className="h-screen w-screen flex">
                 <Layout>
-                    <Layout className="h-screen mt-[56px]">
-                        <Layout style={{ flex: 1, overflow: "hidden" }}>
-                            <Content style={{ width: "100%", height: "100%" }}>
+                    <Layout className="mt-[56px]">
+                        <Layout style={{ flex: 1, overflow: "auto" }}>
+                            <Content style={{ width: "100%", height: "100vh" }}>
                                 {children}
                             </Content>
                         </Layout>
