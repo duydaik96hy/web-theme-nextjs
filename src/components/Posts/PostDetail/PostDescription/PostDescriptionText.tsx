@@ -3,13 +3,13 @@ import { IPost } from '@/types/post';
 import { Card, Divider } from 'antd';
 import React from 'react';
 
-export interface IJobDescriptionTextProps {
+export interface IPostDescriptionTextProps {
   post?: IPost;
 }
 
-const JobDescriptionText = ({ post }: IJobDescriptionTextProps) => {
+const PostDescriptionText = ({ post }: IPostDescriptionTextProps) => {
   return (
-    <Card>
+    <div>
       {post?.description && (
         <div>
           <span>{post.description}</span>
@@ -26,8 +26,8 @@ const JobDescriptionText = ({ post }: IJobDescriptionTextProps) => {
           <span>{post.content}</span>
         </div>
       )}
-    </Card>
+    </div>
   );
 };
 
-export default JobDescriptionText;
+export default PostDescriptionText;

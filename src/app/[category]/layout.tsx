@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Col, ConfigProvider, Layout } from "antd";
-import { Content } from 'antd/es/layout/layout';
+import { ConfigProvider } from "antd";
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
     const pathname = usePathname();
@@ -15,9 +14,9 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
 
     return (
         <ConfigProvider>
-            <Col span={18} offset={3}>
+            <div className='pt-[20px]'>
                 {children}
-            </Col>
+            </div>
         </ConfigProvider>
     );
 };

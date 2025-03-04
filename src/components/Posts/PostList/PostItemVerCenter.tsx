@@ -6,17 +6,17 @@ import { getLocaleDateTime } from '@/helpers/time';
 import { useRouter } from 'next/navigation';
 import { convertTitleToSlug } from '@/helpers/string';
 
-export interface IPostItemVerProps {
+export interface IPostListVerCenterProps {
     post: IPost;
     isShowDescriptionAndTime?: boolean;
 }
 
-const PostItemVer = ({ post, isShowDescriptionAndTime = true }: IPostItemVerProps) => {
+const PostListVerCenter = ({ post, isShowDescriptionAndTime = true }: IPostListVerCenterProps) => {
     const router = useRouter();
 
     const onClick = (post: IPost) => {
         const slug = convertTitleToSlug(post.title);
-        router.push(`/${post.category}/${slug}-${post.id}`);
+        router.push(`${post.category}/${slug}-${post.id}`);
     };
 
     return (
@@ -24,9 +24,9 @@ const PostItemVer = ({ post, isShowDescriptionAndTime = true }: IPostItemVerProp
             onClick={() => {
                 onClick?.(post);
             }}
-            className={'cursor-pointer hover:text-red-500'}
+            className={'cursor-pointer'}
         >
-            <Col className="justify-center border-b-2 border-gray-300 pt-4">
+            <Col className="justify-center">
                 <Space direction="vertical" className="w-full">
                     <img
                         src={post?.banner_images[0] ?? "/static/img/logo.png"}
@@ -57,4 +57,4 @@ const PostItemVer = ({ post, isShowDescriptionAndTime = true }: IPostItemVerProp
     );
 };
 
-export default PostItemVer;
+export default PostListVerCenter;

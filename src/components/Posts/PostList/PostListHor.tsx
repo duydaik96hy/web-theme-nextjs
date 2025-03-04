@@ -5,15 +5,16 @@ import { IPost } from '@/types/post';
 
 export interface IPostListHorProps {
     posts: IPost[];
+    isShowDescriptionAndTime?: boolean;
 }
 
-const PostListHor = ({ posts }: IPostListHorProps) => {
+const PostListHor = ({ posts, isShowDescriptionAndTime = true }: IPostListHorProps) => {
     return (
         <Row gutter={[16, 16]} className="w-full">
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Col span={24} key={post.id}>
-                        <PostItemHor post={post} />
+                        <PostItemHor post={post} isShowDescriptionAndTime={isShowDescriptionAndTime} />
                     </Col>
                 ))
             ) : (

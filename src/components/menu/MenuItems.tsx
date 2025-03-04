@@ -9,26 +9,26 @@ type MenuItems = Required<MenuProps>['items'][number];
 
 const items: MenuItems[] = [
   {
-    key: 'chungcu',
+    key: 'kinhte',
     label: (
-      <Link href="/chung-cu">
-        Chung cư
+      <Link href="/kinh-te">
+        Kinh tế
       </Link>
     )
   },
   {
-    key: 'canho',
+    key: 'thethao',
     label: (
-      <Link href="/can-ho">
-        Căn hộ
+      <Link href="/the-thao">
+        Thể thao
       </Link>
     )
   },
   {
-    key: 'Phòng trọ',
+    key: 'vanhoa',
     label: (
-      <Link href="/phong-tro">
-        Phòng trọ
+      <Link href="/van-hoa">
+        Văn hóa
       </Link>
     ),
   },
@@ -38,7 +38,6 @@ const MenuItemsHeader: React.FC = () => {
   const [current, setCurrent] = useState('mail');
 
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
     setCurrent(e.key);
   };
 

@@ -18,7 +18,7 @@ const HeaderMenu = ({ showAuthMenu }: IHeaderMenuProps) => {
                     </Link>
                 </div>
             </div>
-            <div className="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
+            <div className="menu col-span-8 lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
                 <div className="text-md font-bold text-blue-700 lg:flex-grow">
                     <MenuItemsHeader />
                 </div>

@@ -8,24 +8,25 @@ import { useRouter } from 'next/navigation';
 
 export interface IPostListHorProps {
     post: IPost;
+    isShowDescriptionAndTime?: boolean;
 }
 
-const PostListHor = ({ post }: IPostListHorProps) => {
+const PostListHor = ({ post, isShowDescriptionAndTime = true }: IPostListHorProps) => {
     const router = useRouter();
 
     const onClick = (post: IPost) => {
         const slug = convertTitleToSlug(post.title);
-        router.push(`${post.category}/${slug}-${post.id}`);
+        router.push(`/${post.category}/${slug}-${post.id}`);
     };
 
     return (
-        <Card
+        <div
             onClick={() => {
                 onClick?.(post);
             }}
-            className={'cursor-pointer'}
+            className={'cursor-pointer hover:text-red-500 p-2'}
         >
-            <div className="grid grid-cols-1 text-center md:text-left md:grid-cols-12 gap-4">
+            <div className="grid grid-cols-1 text-center md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
                 <Col className="flex justify-center md:col-span-4">
                     <div className="flex items-center justify-center">
                         <img
@@ -37,27 +38,29 @@ const PostListHor = ({ post }: IPostListHorProps) => {
                 </Col>
 
                 <Col className="sm:col-span-2 md:col-span-8">
-                    <h3
-                        className="font-semibold text-lg overflow-hidden text-ellipsis"
+                    <span
+                        className="font-semibold text-base overflow-hidden"
                         style={{
                             display: '-webkit-box',
-                            WebkitLineClamp: 2,
+                            WebkitLineClamp: 3,
                             WebkitBoxOrient: 'vertical',
-                            height: '2em',
                             lineHeight: '1.5em',
                         }}
                     >
                         {post?.title}
-                    </h3>
-                    <div>
-                        <span className="text-l">{post?.description}</span>
-                    </div>
-                    <div className="text-l">
-                        <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
-                    </div>
+                    </span>
+                    {isShowDescriptionAndTime && (
+                        <>
+                            <div>
+                                <span className="text-l">{post?.description}</span>
+                            </div><div className="text-l">
+                                <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
+                            </div>
+                        </>
+                    )}
                 </Col>
             </div>
-        </Card>
+        </div>
     );
 };
 
