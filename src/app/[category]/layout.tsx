@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ConfigProvider, Layout } from "antd";
+import { Col, ConfigProvider, Layout } from "antd";
 import { Content } from 'antd/es/layout/layout';
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
@@ -15,9 +15,9 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
 
     return (
         <ConfigProvider>
-            <div className="h-screen w-screen flex">
+            <Col span={18} offset={3}>
                 {children}
-            </div>
+            </Col>
         </ConfigProvider>
     );
 };

@@ -32,11 +32,7 @@ const RootLayout = async ({ children }: React.PropsWithChildren) => {
           <AntdRegistry>
             <Col span={18} offset={3}>
               <HeaderMenu showAuthMenu={!isAuthPage} />
-                  <div className="h-screen mt-[60px]">
-                      <div style={{ width: "100%" }}>
-                        {children}
-                      </div>
-                  </div>
+              {children}
             </Col>
             <Footer />
           </AntdRegistry>

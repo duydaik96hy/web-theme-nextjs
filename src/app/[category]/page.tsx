@@ -133,10 +133,10 @@ const HomePage = () => {
     }, [query, paginationPost.current_page]);
 
     return (
-        <div style={{ padding: "0 12px 24px", height: "100vh", overflow: "hidden" }}>
+        <div style={{ padding: "60px 12px 24px", overflow: "hidden" }}>
             <Content>
                 <Row gutter={10}>
-                    <Col span={13} className='w-full'>
+                    <Col span={16} className='w-full'>
                         <Typography>
                             <Typography.Title level={2}>{category}</Typography.Title>
                         </Typography>
@@ -180,14 +180,14 @@ const HomePage = () => {
                             </Col>
                         </Space>
                     </Col>
-                    <Col span={5}>
+                    <Col span={8}>
                         <Space direction="vertical" className="w-full">
                             <Col xs={24} md={24}>
                                 <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3>
                                 {isLoading ? (
                                     <Skeleton active avatar paragraph={{ rows: 4 }} />
                                 ) : (
-                                    <PostListVer allowRedirect category={category} posts={posts.slice(0, 3)} />
+                                    <PostListVer posts={posts.slice(0, 3)} />
                                 )}
                                 <Divider />
                                 <img src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50928_banner_moi_quang_cao_01_14564616.jpg" alt="ads" />
