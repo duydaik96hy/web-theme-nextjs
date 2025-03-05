@@ -9,6 +9,7 @@ import { useParams } from 'next/navigation';
 import PostListHor from '@/components/Posts/PostList/PostListHor';
 import PostItemHor from '@/components/Posts/PostList/PostItemHor';
 import PostItemVer from '@/components/Posts/PostList/PostItemVer';
+import PostItemHorCenter from '@/components/Posts/PostList/PostItemHorCenter';
 
 const { useBreakpoint } = Grid;
 
@@ -147,7 +148,7 @@ const HomePage = () => {
                                     {isLoading ? (
                                         <Skeleton active avatar paragraph={{ rows: 4 }} />
                                     ) : (
-                                        <PostItemHor post={posts[0]} />
+                                        <PostItemHorCenter post={posts[0]} />
                                     )}
                                     <Row gutter={10}>
 

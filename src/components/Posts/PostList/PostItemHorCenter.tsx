@@ -6,12 +6,12 @@ import { getLocaleDateTime } from '@/helpers/time';
 import { convertTitleToSlug } from '@/helpers/string';
 import { useRouter } from 'next/navigation';
 
-export interface IPostItemHorProps {
+export interface IPostItemHorCenterProps {
     post: IPost;
     isShowDescriptionAndTime?: boolean;
 }
 
-const PostItemHor = ({ post, isShowDescriptionAndTime = true }: IPostItemHorProps) => {
+const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemHorCenterProps) => {
     const router = useRouter();
 
     const onClick = (post: IPost) => {
@@ -27,7 +27,7 @@ const PostItemHor = ({ post, isShowDescriptionAndTime = true }: IPostItemHorProp
             className={'cursor-pointer hover:text-red-500 p-2'}
         >
             <div className="grid grid-cols-1 text-center md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
-                <Col className="flex justify-center md:col-span-4">
+                <Col className="flex justify-center md:col-span-8">
                     <div className="flex items-center justify-center">
                         <img
                             src={post?.banner_images[0] ?? "/static/img/logo.png"}
@@ -37,13 +37,14 @@ const PostItemHor = ({ post, isShowDescriptionAndTime = true }: IPostItemHorProp
                     </div>
                 </Col>
 
-                <Col className="sm:col-span-2 md:col-span-8">
+                <Col className="sm:col-span-2 md:col-span-4">
                     <span
                         className="font-semibold text-base overflow-hidden"
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 3,
                             WebkitBoxOrient: 'vertical',
+                            fontSize: '2em',
                             lineHeight: '1.5em',
                         }}
                     >
@@ -64,4 +65,4 @@ const PostItemHor = ({ post, isShowDescriptionAndTime = true }: IPostItemHorProp
     );
 };
 
-export default PostItemHor;
+export default PostItemHorCenter;
