@@ -21,24 +21,24 @@ const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemH
             className={'cursor-pointer text-black hover:text-black p-2'}
         >
             <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
-                <Col className="flex justify-center md:col-span-8">
+                <Col className="flex justify-center md:col-span-7">
                     <div className="flex items-center justify-center">
                         <img
                             src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
                             alt="post logo"
-                        // className="object-cover w-[300px] h-[180px] rounded-1xl"
+                            className="object-fill w-full h-full rounded-1xl"
                         />
                     </div>
                 </Col>
 
-                <Col className="sm:col-span-2 md:col-span-4">
+                <Col className="md:col-span-5">
                     <span
                         className="font-semibold text-base hover:text-red-500 overflow-hidden"
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 2,
                             WebkitBoxOrient: 'vertical',
-                            fontSize: '2em',
+                            fontSize: '1.75em',
                             lineHeight: '1.5em',
                         }}
                     >

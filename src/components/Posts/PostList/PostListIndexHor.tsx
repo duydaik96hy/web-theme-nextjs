@@ -14,8 +14,7 @@ const PostListIndexHor = ({ posts, isShowDescriptionAndTime = true }: IPostListI
             {posts.length > 0 ? (
                 posts.map((post, index) => (
                     <Col span={24} key={post.id}>
-                        <PostItemIndexHor post={post} index={index}
-                            isShowDescriptionAndTime={isShowDescriptionAndTime} />
+                        <PostItemIndexHor post={post} index={index} isShowDescriptionAndTime={isShowDescriptionAndTime} />
                     </Col>
                 ))
             ) : (

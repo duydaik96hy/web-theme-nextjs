@@ -224,8 +224,8 @@ export default async function HomePage() {
   // }, [query, paginationPost.current_page]);
 
   const recentPosts = await getRecentPosts("");
-  const topViewsPosts = await getTopViewsPosts(`web_id=${webId}`);
-  const randomPosts = await getRandomPosts(`web_id=${webId}`);
+  const topViewsPosts = await getTopViewsPosts("");
+  const randomPosts = await getRandomPosts("");
 
   return (
     <div style={{

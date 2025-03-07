@@ -25,7 +25,7 @@ const PostListVerCenter = ({ post, isShowDescriptionAndTime = true }: IPostListV
                     <img
                         src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
                         alt="post logo"
-                        className="object-cover w-full"
+                        className="object-fill w-full"
                     />
                     <span
                         className="font-semibold text-lg hover:text-red-500 overflow-hidden"

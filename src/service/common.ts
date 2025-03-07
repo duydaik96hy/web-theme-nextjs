@@ -10,11 +10,11 @@ export const getData = async (response: Response) => {
         logout();
     }
 
-    notification.error({
-        placement: 'topRight',
-        message: responseData.message,
-    });
-    throw responseData;
+    // notification.error({
+    //     placement: 'topRight',
+    //     message: responseData.message,
+    // });
+    throw responseData.message;
   }
   return responseData.data;
 };
