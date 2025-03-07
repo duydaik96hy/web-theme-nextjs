@@ -3,8 +3,8 @@ import { Card, Col, Space } from 'antd';
 import { IPost } from '@/types/post';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { getLocaleDateTime } from '@/helpers/time';
-import { useRouter } from 'next/navigation';
 import { convertTitleToSlug } from '@/helpers/string';
+import Link from 'next/link';
 
 export interface IPostListVerCenterProps {
     post: IPost;
@@ -12,29 +12,23 @@ export interface IPostListVerCenterProps {
 }
 
 const PostListVerCenter = ({ post, isShowDescriptionAndTime = true }: IPostListVerCenterProps) => {
-    const router = useRouter();
-
-    const onClick = (post: IPost) => {
-        const slug = convertTitleToSlug(post.title);
-        router.push(`${post.category}/${slug}-${post.id}`);
-    };
+    const slug = convertTitleToSlug(post.title);
+    const href = `/${post.category}/${slug}-${post.id}`;
 
     return (
-        <div
-            onClick={() => {
-                onClick?.(post);
-            }}
-            className={'cursor-pointer'}
+        <Link
+            href={href}
+            className={'cursor-pointer text-black hover:text-black'}
         >
             <Col className="justify-center">
                 <Space direction="vertical" className="w-full">
                     <img
-                        src={post?.banner_images[0] ?? "/static/img/logo.png"}
+                        src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
                         alt="post logo"
-                    // className="object-cover w-[300px] h-[180px] rounded-1xl"
+                        className="object-cover w-full"
                     />
                     <span
-                        className="font-semibold text-lg overflow-hidden"
+                        className="font-semibold text-lg hover:text-red-500 overflow-hidden"
                         style={{
                             display: '-webkit-box',
                             WebkitBoxOrient: 'vertical',
@@ -57,7 +51,7 @@ const PostListVerCenter = ({ post, isShowDescriptionAndTime = true }: IPostListV
                     )}
                 </Space>
             </Col>
-        </div>
+        </Link>
     );
 };
 

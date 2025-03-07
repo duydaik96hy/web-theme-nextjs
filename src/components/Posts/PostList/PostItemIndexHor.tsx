@@ -4,7 +4,7 @@ import { IPost } from '@/types/post';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { getLocaleDateTime } from '@/helpers/time';
 import { convertTitleToSlug } from '@/helpers/string';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export interface IPostItemIndexHorProps {
     post: IPost;
@@ -13,19 +13,13 @@ export interface IPostItemIndexHorProps {
 }
 
 const PostItemIndexHor = ({ post, index, isShowDescriptionAndTime = true }: IPostItemIndexHorProps) => {
-    const router = useRouter();
-
-    const onClick = (post: IPost) => {
-        const slug = convertTitleToSlug(post.title);
-        router.push(`/${post.category}/${slug}-${post.id}`);
-    };
+    const slug = convertTitleToSlug(post.title);
+    const href = `/${post.category}/${slug}-${post.id}`;
 
     return (
-        <div
-            onClick={() => {
-                onClick?.(post);
-            }}
-            className={'cursor-pointer hover:text-red-500 p-2 flex items-center border-b-2 border-gray-300 pb-2'}
+        <Link
+            href={ href }
+            className={'cursor-pointer text-black hover:text-black p-2 flex items-center border-b-2 border-gray-300 pb-2'}
         >
             <div>
                 <Avatar size={40} style={{
@@ -36,7 +30,7 @@ const PostItemIndexHor = ({ post, index, isShowDescriptionAndTime = true }: IPos
             </div>
 
             <div
-                className="font-semibold text-base overflow-hidden pl-4"
+                className="font-semibold text-base hover:text-red-500 overflow-hidden pl-4"
                 style={{
                     display: '-webkit-box',
                     WebkitLineClamp: 2,
@@ -46,7 +40,7 @@ const PostItemIndexHor = ({ post, index, isShowDescriptionAndTime = true }: IPos
             >
                 {post?.title}
             </div>
-        </div>
+        </Link>
     );
 };
 

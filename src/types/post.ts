@@ -34,3 +34,12 @@ export interface IPostResponse {
     data: IPost[];
     pagination: IPagination;
 }
+
+export interface IPostCategory {
+    id: string;
+    code: string;
+    name: string;
+    description: string;
+    created_at?: string;
+    updated_at?: string;
+}

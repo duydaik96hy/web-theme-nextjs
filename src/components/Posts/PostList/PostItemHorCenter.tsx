@@ -4,7 +4,7 @@ import { IPost } from '@/types/post';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { getLocaleDateTime } from '@/helpers/time';
 import { convertTitleToSlug } from '@/helpers/string';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export interface IPostItemHorCenterProps {
     post: IPost;
@@ -12,25 +12,19 @@ export interface IPostItemHorCenterProps {
 }
 
 const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemHorCenterProps) => {
-    const router = useRouter();
-
-    const onClick = (post: IPost) => {
-        const slug = convertTitleToSlug(post.title);
-        router.push(`/${post.category}/${slug}-${post.id}`);
-    };
+    const slug = convertTitleToSlug(post.title);
+    const href = `/${post.category}/${slug}-${post.id}`;
 
     return (
-        <div
-            onClick={() => {
-                onClick?.(post);
-            }}
-            className={'cursor-pointer hover:text-red-500 p-2'}
+        <Link
+            href={href}
+            className={'cursor-pointer text-black hover:text-black p-2'}
         >
             <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
                 <Col className="flex justify-center md:col-span-8">
                     <div className="flex items-center justify-center">
                         <img
-                            src={post?.banner_images[0] ?? "/static/img/logo.png"}
+                            src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
                             alt="post logo"
                         // className="object-cover w-[300px] h-[180px] rounded-1xl"
                         />
@@ -39,7 +33,7 @@ const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemH
 
                 <Col className="sm:col-span-2 md:col-span-4">
                     <span
-                        className="font-semibold text-base overflow-hidden"
+                        className="font-semibold text-base hover:text-red-500 overflow-hidden"
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 2,
@@ -61,7 +55,7 @@ const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemH
                     )}
                 </Col>
             </div>
-        </div>
+        </Link>
     );
 };
 
