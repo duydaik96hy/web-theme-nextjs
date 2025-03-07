@@ -1,10 +1,10 @@
 export const convertTitleToSlug = (title: string): string => {
     return title
-        .toLowerCase()           // Chuyển thành chữ thường
-        .normalize('NFD')       // Chuẩn hóa để loại bỏ dấu
-        .replace(/[\u0300-\u036f]/g, '') // Loại bỏ dấu
-        .trim()                 // Xóa khoảng trắng đầu và cuối
-        .replace(/\s+/g, '-')   // Thay thế khoảng trắng bằng dấu gạch ngang
-        .replace(/--+/g, '-')    // Thay thế nhiều dấu gạch ngang liên tiếp thành một
-        .replace(/^-+|-+$/g, ''); // Xóa dấu gạch ngang ở đầu và cuối
+        .normalize("NFD") // Tách dấu khỏi chữ cái
+        .replace(/[\u0300-\u036f]/g, "") // Xóa dấu
+        .replace(/đ/g, "d") // Chuyển "đ" thành "d"
+        .replace(/Đ/g, "d") // Chuyển "Đ" thành "d"
+        .toLowerCase() // Chuyển thành chữ thường
+        .replace(/[^a-z0-9]+/g, "-") // Thay khoảng trắng & ký tự đặc biệt bằng "-"
+        .replace(/^-+|-+$/g, ""); // Xóa dấu "-" ở đầu & cuối chuỗi
 }

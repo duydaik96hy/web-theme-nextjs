@@ -9,11 +9,11 @@ import PostItemHorCenter from '@/components/Posts/PostList/PostItemHorCenter';
 import PostListIndexHor from '@/components/Posts/PostList/PostListIndexHor';
 import { getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/posts';
 
-interface BlogPostProps {
+interface CategoryPostProps {
     params: { category: string };
 }
 
-const HomePage = async ({ params }: BlogPostProps) => {
+const HomePage = async ({ params }: CategoryPostProps) => {
     const { category } = await params;
     const postCategories = await getPostsCategories("");
     const categoryObj = postCategories.find((item) => item.code.toLocaleLowerCase() === category);

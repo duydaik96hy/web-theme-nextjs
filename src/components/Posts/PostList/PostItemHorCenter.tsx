@@ -5,15 +5,19 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import { getLocaleDateTime } from '@/helpers/time';
 import { convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
+import { getPostsCategories } from '@/service/posts';
 
 export interface IPostItemHorCenterProps {
     post: IPost;
     isShowDescriptionAndTime?: boolean;
 }
 
-const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemHorCenterProps) => {
+const PostItemHorCenter = async ({ post, isShowDescriptionAndTime = true }: IPostItemHorCenterProps) => {
     const slug = convertTitleToSlug(post.title);
-    const href = `/${post.category}/${slug}-${post.id}`;
+    const postCategories = await getPostsCategories("");
+    const categoryObj = postCategories.find((item) => item.id === post.category) ?? { code: 'other' };
+
+    const href = `/${categoryObj.code.toLocaleLowerCase()}/${slug}-${post.id}`;
 
     return (
         <Link

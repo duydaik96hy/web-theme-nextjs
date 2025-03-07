@@ -17,9 +17,9 @@ const PostDescriptionText = ({ post }: IPostDescriptionTextProps) => {
       )}
       <Divider />
       <img
-        src={post?.banner_images[0] ?? "/static/img/logo.png"}
+        src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
         alt="post logo"
-        className="object-cover rounded-2xl"
+        className="object-fit rounded-2xl w-full h-full"
       />
       {post?.description && (
         <div style={{ paddingTop: '20px'}}>
