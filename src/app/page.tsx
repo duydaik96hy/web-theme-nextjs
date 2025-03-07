@@ -223,8 +223,8 @@ const HomePage = () => {
       padding: "64px 12px 24px",
       overflow: "hidden"
     }}>
-      <Row gutter={0} className='w-full'>
-        <Col xs={0} md={0} xl={6} className='w-full' style={{ height: '75vh', overflow: 'auto' }}>
+      <Row gutter={0} className='w-full border-b-2 border-gray-300'>
+        <Col xs={0} md={0} xl={6} className='w-full' style={{ height: '65vh', overflow: 'auto' }}>
           <Space direction="vertical" className="w-full">
             <Col xs={24}>
               {isLoading ? (
@@ -240,7 +240,7 @@ const HomePage = () => {
             </Col>
           </Space>
         </Col>
-        <Col xs={24} sm={24} md={24} xl={13} className='w-full pb-6' style={{ height: 'auto', overflow: 'auto' }}>
+        <Col xs={24} sm={24} md={24} xl={13} className='w-full pb-6 pr-4 pl-4' style={{ height: 'auto', overflow: 'auto' }}>
           <Space direction="vertical" className="w-full">
             <Col xs={24}>
               {isLoading ? (

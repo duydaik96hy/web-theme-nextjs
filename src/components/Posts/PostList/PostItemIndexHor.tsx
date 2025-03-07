@@ -38,6 +38,7 @@ const PostItemIndexHor = ({ post, index, isShowDescriptionAndTime = true }: IPos
             <div
                 className="font-semibold text-base overflow-hidden pl-4"
                 style={{
+                    display: '-webkit-box',
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
                     lineHeight: '1.25em',

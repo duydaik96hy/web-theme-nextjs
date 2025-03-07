@@ -110,6 +110,24 @@ const HomePage = () => {
                                 "created_at": "2024-06-17 16:22:06",
                                 "updated_at": "2024-06-17 17:31:19",
                                 "id": "6670003e4dfde8ecf1fcf329"
+                            },
+                            {
+                                "banner_images": [
+                                    "https://media.tapchitaichinh.vn/w1480/images/upload/2024/02/21/bds-ha-noi-17080891791471270135244.jpg"
+                                ],
+                                "title": "Nha can ban gap nhe",
+                                "content": "nha rong, thoang mat, co nha ve sinh",
+                                "description": "nha rong, thoang mat, co nha ve sinh thoang mat",
+                                "views": 0,
+                                "keyword": "nha ban",
+                                "category": "the-thao",
+                                "web": "https://www.google.com",
+                                "random_key": 0,
+                                "source": "https://www.google.com",
+                                "deleted_at": "",
+                                "created_at": "2024-06-17 16:22:06",
+                                "updated_at": "2024-06-17 17:31:19",
+                                "id": "6670003e4dfde8ecf1fcf330"
                             }
                         ],
                         "pagination": {
@@ -189,16 +207,16 @@ const HomePage = () => {
                                 {isLoading ? (
                                     <Skeleton active avatar paragraph={{ rows: 4 }} />
                                 ) : (
-                                    <PostListIndexHor posts={posts.slice(0, 5)} />
+                                    <PostListIndexHor posts={posts.slice(0, 6)} />
                                 )}
-                                {/* <Divider />
+                            </Col>
+                        </Space>
+                        <Divider />
                                 <img
                                     src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50928_banner_moi_quang_cao_01_14564616.jpg"
                                     alt="ads"
                                     style={{ width: '100%', height: 'auto' }}
-                                /> */}
-                            </Col>
-                        </Space>
+                                />
                     </Col>
                 </Row>
             </Content>
