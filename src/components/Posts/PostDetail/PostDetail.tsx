@@ -1,7 +1,5 @@
 import { Col, Divider, FloatButton, Row, Skeleton, Space, Spin, Tabs } from 'antd';
 import React, { useEffect, useState } from 'react';
-import PostHeader from './PostHeader';
-import PostDescription from './PostDescription/PostDescription';
 import { IPost } from '@/types/post';
 import PostListVer from '../PostList/PostListVer';
 import PostDetailContent from './PostDetailContent';
@@ -221,22 +219,26 @@ const PostDetail = ({ postId }: IPostDetailProps) => {
             </Col>
         </Row>
         <Row gutter={[16, 16]} className="w-full pt-2">
-            <Col span={19} className='w-full'>
+            <Col sm={24} md={24} lg={18} className='w-full'>
                 {isLoading ? (
                     <Skeleton active avatar paragraph={{ rows: 20, width: 600 }} />
                 ) : (
                     <PostDetailContent post={post} />
                 )}
             </Col>
-            <Col span={5} className='w-full' style={{ height: '100%', overflow: 'auto' }}>
-                <Space direction="vertical" className="w-full border-l border-gray-300 pl-4" style={{ height: 'vh', overflow: 'auto' }}>
+            <Col sm={24} md={24} lg={6} className='w-full' style={{ height: '100%', overflow: 'auto' }}>
+                <Space direction="vertical" className="w-full" style={{ height: 'vh', overflow: 'auto' }}>
                     <Col xs={24} md={24}>
-                        <h3 className="text-xl font-semibold text-center m-4">Tin xem nhiều</h3>
+                        <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Cùng chuyên mục</h3>
                         {isLoading ? (
-                            <><Skeleton active avatar paragraph={{ rows: 4 }} /><Skeleton active avatar paragraph={{ rows: 4 }} /><Skeleton active avatar paragraph={{ rows: 4 }} /></>
+                          <>
+                            <Skeleton active avatar paragraph={{ rows: 4 }} />
+                            <Skeleton active avatar paragraph={{ rows: 4 }} />
+                            <Skeleton active avatar paragraph={{ rows: 4 }} />
+                          </>
                         ) : (
                         <Space direction="vertical" className="w-full">
-                            <PostListVer posts={mostViewedPosts} isShowDescriptionAndTime={false} />
+                            <PostListVer posts={mostViewedPosts} isShowDescriptionAndTime={true} />
                         </Space>
                         )}
                     </Col>

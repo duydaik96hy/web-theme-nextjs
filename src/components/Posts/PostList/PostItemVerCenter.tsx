@@ -38,6 +38,8 @@ const PostListVerCenter = ({ post, isShowDescriptionAndTime = true }: IPostListV
                         style={{
                             display: '-webkit-box',
                             WebkitBoxOrient: 'vertical',
+                            WebkitLineClamp: 2,
+                            fontSize: '1.75em',
                             lineHeight: '1.5em',
                         }}
                     >
@@ -45,7 +47,9 @@ const PostListVerCenter = ({ post, isShowDescriptionAndTime = true }: IPostListV
                     </span>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div className="text-l">{post?.description}</div>
+                            <div className="text-l line-clamp-3">
+                                {post?.description}
+                            </div>
                             <div className="text-l">
                                 <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
                             </div>

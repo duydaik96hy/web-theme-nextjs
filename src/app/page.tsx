@@ -6,6 +6,7 @@ import PostListVer from '@/components/Posts/PostList/PostListVer';
 import { IPost, IPostFilter } from '@/types/post';
 import PostListHor from '@/components/Posts/PostList/PostListHor';
 import PostListVerCenter from '@/components/Posts/PostList/PostItemVerCenter';
+import PostIndexListHor from '@/components/Posts/PostList/PostListIndexHor';
 
 const { useBreakpoint } = Grid;
 
@@ -218,24 +219,30 @@ const HomePage = () => {
   }, [query, paginationPost.current_page]);
 
   return (
-    <div style={{ padding: "64px 12px 24px", overflow: "hidden" }}>
-      <Row gutter={0} className='w-full pb-6 border-b border-gray-300'>
-        <Col span={6} className='w-full' style={{ height: '65vh', overflow: 'auto' }}>
+    <div style={{
+      padding: "64px 12px 24px",
+      overflow: "hidden"
+    }}>
+      <Row gutter={0} className='w-full'>
+        <Col xs={0} md={0} xl={6} className='w-full' style={{ height: '75vh', overflow: 'auto' }}>
           <Space direction="vertical" className="w-full">
-            <Col xs={24} md={24}>
-              {/* <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3> */}
+            <Col xs={24}>
               {isLoading ? (
-                <Skeleton active avatar paragraph={{ rows: 4 }} />
+                <>
+                  <Skeleton active avatar paragraph={{ rows: 5 }} />
+                  <Skeleton active avatar paragraph={{ rows: 5 }} />
+                </>
               ) : (
-                <PostListHor posts={posts} isShowDescriptionAndTime={false} />
+                <Space direction="vertical" className="w-full">
+                  <PostListHor posts={posts} isShowDescriptionAndTime={false} />
+                </Space>
               )}
             </Col>
           </Space>
         </Col>
-        <Col span={13} className='w-full border-l border-gray-300 pr-4 pl-4' style={{ height: '65vh', overflow: 'auto' }}>
+        <Col xs={24} sm={24} md={24} xl={13} className='w-full pb-6' style={{ height: 'auto', overflow: 'auto' }}>
           <Space direction="vertical" className="w-full">
-            <Col xs={24} md={24}>
-              {/* <h3 className="text-xl font-semibold text-center m-4">{category}</h3> */}
+            <Col xs={24}>
               {isLoading ? (
                 <Skeleton active avatar paragraph={{ rows: 15 }} />
               ) : posts.length > 0 ? (
@@ -248,32 +255,32 @@ const HomePage = () => {
             </Col>
           </Space>
         </Col>
-        <Col span={5} className='w-full' style={{ height: '65vh', overflow: 'auto' }}>
-          <Space direction="vertical" className="w-full border-l border-gray-300 pl-4" style={{ height: 'vh', overflow: 'auto' }}>
-            <Col xs={24} md={24}>
-              <img src='https://mediabhy.mediatech.vn/upload/image/202303/medium/49885_hoc_tap_hcm_300x250_2_14222303.jpg' alt='ads' />
-              <Divider />
-              <h3 className="text-xl font-semibold text-center m-4">Tin xem nhiều</h3>
+        <Col xs={0} sm={0} md={0} xl={5} className='w-full bg-neutral-200 p-4 rounded-lg' style={{ height: '65vh', overflow: 'auto' }}>
+          <Space direction="vertical" className="w-full">
+            <Col xs={24}>
+              <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin xem nhiều</h3>
               {isLoading ? (
-                <><Skeleton active avatar paragraph={{ rows: 5 }} /><Skeleton active avatar paragraph={{ rows: 5 }} /></>
+                <>
+                  <Skeleton active avatar paragraph={{ rows: 5 }} />
+                  <Skeleton active avatar paragraph={{ rows: 5 }} />
+                </>
               ) : (
-                <Space direction="vertical" className="w-full">
-                  <PostListVer posts={posts} isShowDescriptionAndTime={false} />
-                </Space>
+                <PostIndexListHor posts={posts} isShowDescriptionAndTime={false} />
               )}
             </Col>
           </Space>
         </Col>
       </Row>
-      <Row className='pt-4'>
-      </Row>
       <Row>
         <Col span={24} className='w-full mt-4'>
           <Space direction="vertical" className="w-full">
-            <Col xs={24} md={24}>
+            <Col xs={24}>
               <h3 className="text-xl font-semibold text-center m-4">Tin mới nhất</h3>
               {isLoading ? (
-                <><Skeleton active avatar paragraph={{ rows: 5 }} /><Skeleton active avatar paragraph={{ rows: 5 }} /></>
+                <>
+                  <Skeleton active avatar paragraph={{ rows: 5 }} />
+                  <Skeleton active avatar paragraph={{ rows: 5 }} />
+                </>
               ) : (
                 <PostListHor posts={posts} />
               )}
@@ -281,6 +288,21 @@ const HomePage = () => {
           </Space>
         </Col>
       </Row>
+      <div className="w-full xl:invisible">
+        <Space direction="vertical" className="w-full">
+          <Col xs={24}>
+            <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin xem nhiều</h3>
+            {isLoading ? (
+              <>
+                <Skeleton active avatar paragraph={{ rows: 5 }} />
+                <Skeleton active avatar paragraph={{ rows: 5 }} />
+              </>
+            ) : (
+              <PostIndexListHor posts={posts} isShowDescriptionAndTime={false} />
+            )}
+          </Col>
+        </Space>
+      </div>
     </div>
   );
 

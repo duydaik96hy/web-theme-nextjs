@@ -35,7 +35,7 @@ const items: MenuItems[] = [
 ];
 
 const MenuItemsHeader: React.FC = () => {
-  const [current, setCurrent] = useState('mail');
+  const [current, setCurrent] = useState('');
 
   const onClick: MenuProps['onClick'] = (e) => {
     setCurrent(e.key);

@@ -10,6 +10,7 @@ import PostListHor from '@/components/Posts/PostList/PostListHor';
 import PostItemHor from '@/components/Posts/PostList/PostItemHor';
 import PostItemVer from '@/components/Posts/PostList/PostItemVer';
 import PostItemHorCenter from '@/components/Posts/PostList/PostItemHorCenter';
+import PostListIndexHor from '@/components/Posts/PostList/PostListIndexHor';
 
 const { useBreakpoint } = Grid;
 
@@ -137,13 +138,12 @@ const HomePage = () => {
         <div style={{ padding: "60px 12px 24px", overflow: "hidden" }}>
             <Content>
                 <Row gutter={10}>
-                    <Col span={18} className='w-full'>
+                    <Col xs={24} md={24} lg={18} className='w-full'>
                         <Typography>
                             <Typography.Title level={2}>{category}</Typography.Title>
                         </Typography>
                         <Space direction="vertical" className="w-full">
-                            <Col xs={24} md={24}>
-                                {/* <h3 className="text-xl font-semibold text-center m-4">{category}</h3> */}
+                            <Col xs={24}>
                                 <Col>
                                     {isLoading ? (
                                         <Skeleton active avatar paragraph={{ rows: 4 }} />
@@ -151,20 +151,21 @@ const HomePage = () => {
                                         <PostItemHorCenter post={posts[0]} />
                                     )}
                                     <Row gutter={10}>
-
-                                        <Col span={8}>
+                                        <Col xs={24} sm={12} md={8}>
                                             {isLoading ? (
                                                 <Skeleton active avatar paragraph={{ rows: 4 }} />
                                             ) : (
                                                 <PostItemVer post={posts[1]} />
                                             )}
-                                        </Col><Col span={8}>
+                                        </Col>
+                                        <Col xs={24} sm={12} md={8}>
                                             {isLoading ? (
                                                 <Skeleton active avatar paragraph={{ rows: 4 }} />
                                             ) : (
                                                 <PostItemVer post={posts[2]} />
                                             )}
-                                        </Col><Col span={8}>
+                                        </Col>
+                                        <Col xs={24} sm={12} md={8}>
                                             {isLoading ? (
                                                 <Skeleton active avatar paragraph={{ rows: 4 }} />
                                             ) : (
@@ -181,17 +182,21 @@ const HomePage = () => {
                             </Col>
                         </Space>
                     </Col>
-                    <Col span={6}>
-                        <Space direction="vertical" className="w-full">
-                            <Col xs={24} md={24}>
-                                <h3 className="text-xl font-semibold text-center m-4">Tin nổi bật</h3>
+                    <Col xs={24} md={24} lg={6}>
+                        <Space direction="vertical" className="w-full bg-neutral-200 p-4 rounded-lg">
+                            <Col xs={24}>
+                                <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin nổi bật</h3>
                                 {isLoading ? (
                                     <Skeleton active avatar paragraph={{ rows: 4 }} />
                                 ) : (
-                                    <PostListVer posts={posts.slice(0, 3)} />
+                                    <PostListIndexHor posts={posts.slice(0, 5)} />
                                 )}
-                                <Divider />
-                                <img src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50928_banner_moi_quang_cao_01_14564616.jpg" alt="ads" />
+                                {/* <Divider />
+                                <img
+                                    src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50928_banner_moi_quang_cao_01_14564616.jpg"
+                                    alt="ads"
+                                    style={{ width: '100%', height: 'auto' }}
+                                /> */}
                             </Col>
                         </Space>
                     </Col>

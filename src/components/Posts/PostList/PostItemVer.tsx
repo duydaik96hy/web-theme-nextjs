@@ -37,15 +37,16 @@ const PostItemVer = ({ post, isShowDescriptionAndTime = true }: IPostItemVerProp
                         className="font-semibold text-lg overflow-hidden"
                         style={{
                             display: '-webkit-box',
+                            WebkitLineClamp: 2,
                             WebkitBoxOrient: 'vertical',
-                            lineHeight: '1.5em',
+                            lineHeight: '1.25em',
                         }}
                     >
                         {post?.title}
                     </span>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div className="text-l">{post?.description}</div>
+                            <div className="text-l line-clamp-3">{post?.description}</div>
                             <div className="text-l">
                                 <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
                             </div>

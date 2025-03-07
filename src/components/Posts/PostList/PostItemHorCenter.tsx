@@ -26,7 +26,7 @@ const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemH
             }}
             className={'cursor-pointer hover:text-red-500 p-2'}
         >
-            <div className="grid grid-cols-1 text-center md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
+            <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
                 <Col className="flex justify-center md:col-span-8">
                     <div className="flex items-center justify-center">
                         <img
@@ -42,7 +42,7 @@ const PostItemHorCenter = ({ post, isShowDescriptionAndTime = true }: IPostItemH
                         className="font-semibold text-base overflow-hidden"
                         style={{
                             display: '-webkit-box',
-                            WebkitLineClamp: 3,
+                            WebkitLineClamp: 2,
                             WebkitBoxOrient: 'vertical',
                             fontSize: '2em',
                             lineHeight: '1.5em',
