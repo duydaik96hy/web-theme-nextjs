@@ -15,9 +15,10 @@ export interface IPostItemHorCenterProps {
 const PostItemHorCenter = async ({ post, isShowDescriptionAndTime = true }: IPostItemHorCenterProps) => {
     const slug = convertTitleToSlug(post.title);
     const postCategories = await getPostsCategories("");
-    const categoryObj = postCategories.find((item) => item.id === post.category) ?? { code: 'other' };
+    const categoryObj = postCategories.find((item) => item.id === post.category) ?? { name: 'other' };
+    const category = convertTitleToSlug(categoryObj.name);
 
-    const href = `/${categoryObj.code.toLocaleLowerCase()}/${slug}-${post.id}`;
+    const href = `/${category}/${slug}-${post.id}`;
 
     return (
         <Link

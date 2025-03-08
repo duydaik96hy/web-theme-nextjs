@@ -8,6 +8,7 @@ import PostItemVer from '@/components/Posts/PostList/PostItemVer';
 import PostItemHorCenter from '@/components/Posts/PostList/PostItemHorCenter';
 import PostListIndexHor from '@/components/Posts/PostList/PostListIndexHor';
 import { getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/posts';
+import { convertTitleToSlug } from '@/helpers/string';
 
 interface CategoryPostProps {
     params: { category: string };
@@ -16,7 +17,7 @@ interface CategoryPostProps {
 const HomePage = async ({ params }: CategoryPostProps) => {
     const { category } = await params;
     const postCategories = await getPostsCategories("");
-    const categoryObj = postCategories.find((item) => item.code.toLocaleLowerCase() === category);
+    const categoryObj = postCategories.find((item) => convertTitleToSlug(item.name) === category);
 
     const posts = await getRecentPosts(`category=${categoryObj?.id}`);
     const topViewsPosts = await getTopViewsPosts(`category=${categoryObj?.id}&limit=5`);

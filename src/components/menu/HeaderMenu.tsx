@@ -3,6 +3,7 @@ import AuthMenu from './AuthMenu';
 import Link from 'next/link';
 import { IPostCategory } from '@/types/post';
 import { getPostsCategories } from '@/service/posts';
+import { convertTitleToSlug } from '@/helpers/string';
 
 interface IHeaderMenuProps {
     showAuthMenu: boolean;
@@ -13,7 +14,7 @@ const HeaderMenu = async ({ showAuthMenu }: IHeaderMenuProps) => {
     const items = postCategories.map((category: IPostCategory) => ({
         key: category.code.toLocaleLowerCase(),
         label: (
-            <Link href={`/${category.code.toLocaleLowerCase()}`}>
+            <Link href={`/${convertTitleToSlug(category.name)}`}>
                 {category.name}
             </Link>
         ),

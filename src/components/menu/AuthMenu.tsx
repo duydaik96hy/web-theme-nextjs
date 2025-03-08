@@ -1,8 +1,5 @@
-"use client";
-
 import {Button} from 'antd';
 import React from 'react';
-import {useRouter} from "next/navigation";
 
 const AuthMenu = () => {
     return (

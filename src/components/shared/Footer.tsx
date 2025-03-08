@@ -1,8 +1,22 @@
+import { convertTitleToSlug } from '@/helpers/string';
+import { getPostsCategories } from '@/service/posts';
+import { IPostCategory } from '@/types/post';
+import Link from 'next/link';
 import React from 'react';
 
 export interface IFooterProps {}
 
-const Footer = (props: IFooterProps) => {
+const Footer = async (props: IFooterProps) => {
+  const postCategories = await getPostsCategories("");
+  const items = postCategories.map((category: IPostCategory) => ({
+      key: category.code.toLocaleLowerCase(),
+      label: (
+          <Link href={`/${convertTitleToSlug(category.name)}`}>
+              {category.name}
+          </Link>
+      ),
+  }));
+  
   return (
     <footer className="bg-[#DD162A] py-[18px] flex justify-center">
       <section className="max-w-[1162px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-4 sm:mx-8 lg:mx-0">
@@ -36,15 +50,9 @@ const Footer = (props: IFooterProps) => {
           <div>
             <h3 className="text-white text-xl mb-2">Truy cập nhanh</h3>
             <ul className="text-white text-[85%] space-y-1">
-              <li>
-                <a href="#">Chung cư</a>
-              </li>
-              <li>
-                <a href="#">Căn hộ</a>
-              </li>
-              <li>
-                <a href="#">Nhà ở</a>
-              </li>
+              {items.map((item) => (
+                <li key={item.key}>{item.label}</li>
+              ))}
             </ul>
           </div>
         </div>

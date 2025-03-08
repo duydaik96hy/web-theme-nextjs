@@ -1,6 +1,5 @@
-import { Col, Divider, FloatButton, Row, Skeleton, Space, Spin, Tabs } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { IPost } from '@/types/post';
+import { Col, Row, Space } from 'antd';
+import React from 'react';
 import PostListVer from '../PostList/PostListVer';
 import PostDetailContent from './PostDetailContent';
 import { getPostById, getPostsCategories, getRecentPosts } from '@/service/posts';
@@ -24,7 +23,7 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
           </Col>
         </Row>
         {post ? (
-          <PostDetailContent post={post} />
+          <PostDetailContent post={post} categoryName={categoryObj.name}/>
         ) : (
           <p>Không có dữ liệu</p>
         )}
@@ -33,7 +32,7 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
         <Space direction="vertical" className="w-full" style={{ height: 'vh', overflow: 'auto' }}>
           <Col xs={24} md={24}>
             <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Cùng chuyên mục</h3>
-            {sameCategoryPosts.length === 0 ? (
+            {sameCategoryPosts.length > 0 ? (
               <Space direction="vertical" className="w-full">
                 <PostListVer posts={sameCategoryPosts} isShowDescriptionAndTime={true} />
               </Space>

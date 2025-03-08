@@ -15,9 +15,10 @@ export interface IPostListVerCenterProps {
 const PostListVerCenter = async ({ post, isShowDescriptionAndTime = true }: IPostListVerCenterProps) => {
     const slug = convertTitleToSlug(post.title);
     const postCategories = await getPostsCategories("");
-    const categoryObj = postCategories.find((item) => item.id === post.category) ?? { code: 'other' };
-    
-    const href = `/${categoryObj.code.toLocaleLowerCase()}/${slug}-${post.id}`;
+    const categoryObj = postCategories.find((item) => item.id === post.category) ?? { name: 'other' };
+    const category = convertTitleToSlug(categoryObj.name);
+
+    const href = `/${category}/${slug}-${post.id}`;
 
     return (
         <Link
