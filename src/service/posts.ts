@@ -5,7 +5,7 @@ import { webId } from '@/constants/common';
 export const getRecentPosts = async (query: string): Promise<IPost[]> => {
     try {
         console.log('query', query);
-        return await commonClient(`/api/posts/recent?${query}`, 'GET', undefined, true);
+        return await commonClient(`/api/posts/recent?web_id=${webId}&${query}`, 'GET', undefined, true);
     } catch (error: any) {
         throw error;
     }
