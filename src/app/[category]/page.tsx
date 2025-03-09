@@ -9,7 +9,6 @@ import { getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/
 import { convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons';
-import PostListVer from '@/components/Posts/PostList/PostListVer';
 
 interface CategoryPostProps {
     params: { category: string };
@@ -48,18 +47,21 @@ const HomePage = async ({ params }: CategoryPostProps) => {
                             )}
 
                             {/* Grid hiển thị các bài viết */}
-                            {posts.length > 1 &&
-                                <>
-                                    <Col xs={0} sm={0} md={24}>
-                                        <Row gutter={8} className="flex items-stretch">
-                                            <PostListVer posts={posts.slice(1, 4)} />
-                                        </Row>
-                                    </Col>
-                                    <Col xs={24} sm={24} md={0}>
-                                        <PostListHor posts={posts.slice(1, 4)} />
-                                    </Col>
-                                </>
-                            }
+                            <Col xs={0} sm={0} md={24}>
+                                <Row gutter={8} className="flex items-stretch">
+                                    {posts.length > 1 &&
+                                        posts.slice(1, 4).map((post) => (
+                                            <Col key={post.id} span={8} className="flex flex-col">
+                                                <div className="flex-1 flex flex-col h-full">
+                                                    <PostItemVer post={post} />
+                                                </div>
+                                            </Col>
+                                        ))}
+                                </Row>
+                            </Col>
+                            <Col xs={24} sm={24} md={0}>
+                                <PostListHor posts={posts.slice(1, 4)} />
+                            </Col>
 
                             <PostListHor posts={posts.slice(4)} />
                         </Space>
