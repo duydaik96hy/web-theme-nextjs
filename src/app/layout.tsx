@@ -27,7 +27,7 @@ const RootLayout = async ({ children }: React.PropsWithChildren) => {
     <html lang="en">
       <body className={roboto.className}>
           <AntdRegistry>
-            <Col xs={24} sm={24} md={22} lg={22} xl={20} className="mx-auto">
+            <Col xs={23} sm={23} md={22} lg={22} xl={20} className="mx-auto">
               <HeaderMenu showAuthMenu={!isAuthPage} />
               {children}
             </Col>

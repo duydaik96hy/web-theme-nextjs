@@ -1,6 +1,7 @@
 import { Col, Divider, Row } from 'antd';
 import React from 'react';
 import { IPost } from '@/types/post';
+import { convertImageUrl } from '@/helpers/string';
 
 export interface IPostDescriptionProps {
     post: IPost;
@@ -17,7 +18,7 @@ const PostDescription = ({ post }: IPostDescriptionProps) => {
                 )}
                 {/* <Divider /> */}
                 <img
-                    src={post?.banner_images[0] ?? "/static/img/logo.png"}
+                    src={convertImageUrl(post?.banner_images[0]?.filename ?? '') ?? "/static/img/logo.png"}
                     alt="post logo"
                     className="object-fit rounded-2xl w-full h-full"
                 />

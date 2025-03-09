@@ -3,7 +3,7 @@ export interface IPost {
     title: string;
     description: string;
     content: string;
-    banner_images: string[];
+    banner_images: IBannerImage[];
     views: number;
     keyword: string;
     category: string;
@@ -40,6 +40,15 @@ export interface IPostCategory {
     code: string;
     name: string;
     description: string;
+    created_at?: string;
+    updated_at?: string;
+}
+
+export interface IBannerImage {
+    id: string;
+    name: string;
+    filename: string;
+    mimetype: string;
     created_at?: string;
     updated_at?: string;
 }

@@ -47,17 +47,24 @@ const HomePage = async ({ params }: CategoryPostProps) => {
                             ) : (
                                 <p>Không có bài viết nào</p>
                             )}
-                            <div className='grid grid-cols-3 gap-4'>
-                                {posts.length > 1 ? (
-                                    posts.slice(1, 4).map((post) => (
-                                        <div key={post.id} className="h-full flex md:h-[330px] lg:h-[300px]">
-                                            <PostItemVer post={post} />
-                                        </div>
-                                    ))
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
+
+                            {/* Grid hiển thị các bài viết */}
+                            <Col xs={0} sm={0} md={24}>
+                                <Row gutter={8} className="flex items-stretch">
+                                    {posts.length > 1 &&
+                                        posts.slice(1, 4).map((post) => (
+                                            <Col key={post.id} span={8} className="flex flex-col">
+                                                <div className="flex-1 flex flex-col h-full">
+                                                    <PostItemVer post={post} className="flex-1 h-full" />
+                                                </div>
+                                            </Col>
+                                        ))}
+                                </Row>
+                            </Col>
+                            <Col xs={24} sm={24} md={0}>
+                                <PostListHor posts={posts.slice(1, 4)} />
+                            </Col>
+
                             <PostListHor posts={posts.slice(4)} />
                         </Space>
                     </Col>

@@ -1,3 +1,5 @@
+import { imageBasePath } from "@/constants/common";
+
 export const convertTitleToSlug = (title: string): string => {
     return title
         .normalize("NFD") // Tách dấu khỏi chữ cái
@@ -7,4 +9,8 @@ export const convertTitleToSlug = (title: string): string => {
         .toLowerCase() // Chuyển thành chữ thường
         .replace(/[^a-z0-9]+/g, "-") // Thay khoảng trắng & ký tự đặc biệt bằng "-"
         .replace(/^-+|-+$/g, ""); // Xóa dấu "-" ở đầu & cuối chuỗi
+}
+
+export const convertImageUrl = (filename: string): string => {
+    return imageBasePath + filename;
 }
