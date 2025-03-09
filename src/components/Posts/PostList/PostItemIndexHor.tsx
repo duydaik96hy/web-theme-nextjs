@@ -35,7 +35,7 @@ const PostItemIndexHor = async ({ post, index, isShowDescriptionAndTime = true }
             </div>
 
             <div
-                className="font-semibold text-base text-justify hover:text-red-500 overflow-hidden pl-4"
+                className="font-semibold text-base hover:text-red-500 overflow-hidden pl-4"
                 style={{
                     display: '-webkit-box',
                     WebkitLineClamp: 2,

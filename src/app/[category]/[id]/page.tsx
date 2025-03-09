@@ -12,7 +12,7 @@ const HomePage = async ({ params }: BlogPostProps) => {
     const postId = id.split('-').pop() || '';
 
     return (
-        <div style={{ padding: '60px 0px 24px' }}>
+        <div style={{ padding: '45px 0px 24px' }}>
             <PostDetail postId={postId} />
         </div>
     );

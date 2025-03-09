@@ -25,7 +25,7 @@ const HomePage = async ({ params }: CategoryPostProps) => {
     const topViewsPosts = (await getTopViewsPosts(`category=${categoryObj?.id}&limit=5`)).data;
 
     return (
-        <div style={{ padding: "60px 0px 24px", overflow: "hidden" }}>
+        <div style={{ padding: "45px 0px 24px", overflow: "hidden" }}>
             <Breadcrumb
                 items={[
                     {
