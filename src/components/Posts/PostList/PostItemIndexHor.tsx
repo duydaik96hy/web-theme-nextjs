@@ -33,8 +33,7 @@ const PostItemIndexHor = async ({ post, index, isShowDescriptionAndTime = true }
                     {index + 1}
                 </Avatar>
             </div>
-
-            <div
+            <h2
                 className="font-semibold text-base hover:text-red-500 overflow-hidden pl-4"
                 style={{
                     display: '-webkit-box',
@@ -44,7 +43,7 @@ const PostItemIndexHor = async ({ post, index, isShowDescriptionAndTime = true }
                 }}
             >
                 {post?.title}
-            </div>
+            </h2>
         </Link>
     );
 };

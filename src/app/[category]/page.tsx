@@ -1,9 +1,7 @@
 import React from 'react';
 import { Row, Col, Layout, Pagination, Space, Grid, Skeleton, Typography, Divider, Breadcrumb } from "antd";
-import PostListVer from '@/components/Posts/PostList/PostListVer';
 import { Content } from "antd/es/layout/layout";
 import PostListHor from '@/components/Posts/PostList/PostListHor';
-import PostItemHor from '@/components/Posts/PostList/PostItemHor';
 import PostItemVer from '@/components/Posts/PostList/PostItemVer';
 import PostItemHorCenter from '@/components/Posts/PostList/PostItemHorCenter';
 import PostListIndexHor from '@/components/Posts/PostList/PostListIndexHor';
@@ -11,6 +9,7 @@ import { getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/
 import { convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons';
+import PostListVer from '@/components/Posts/PostList/PostListVer';
 
 interface CategoryPostProps {
     params: { category: string };
@@ -49,21 +48,18 @@ const HomePage = async ({ params }: CategoryPostProps) => {
                             )}
 
                             {/* Grid hiển thị các bài viết */}
-                            <Col xs={0} sm={0} md={24}>
-                                <Row gutter={8} className="flex items-stretch">
-                                    {posts.length > 1 &&
-                                        posts.slice(1, 4).map((post) => (
-                                            <Col key={post.id} span={8} className="flex flex-col">
-                                                <div className="flex-1 flex flex-col h-full">
-                                                    <PostItemVer post={post} className="flex-1 h-full" />
-                                                </div>
-                                            </Col>
-                                        ))}
-                                </Row>
-                            </Col>
-                            <Col xs={24} sm={24} md={0}>
-                                <PostListHor posts={posts.slice(1, 4)} />
-                            </Col>
+                            {posts.length > 1 &&
+                                <>
+                                    <Col xs={0} sm={0} md={24}>
+                                        <Row gutter={8} className="flex items-stretch">
+                                            <PostListVer posts={posts.slice(1, 4)} />
+                                        </Row>
+                                    </Col>
+                                    <Col xs={24} sm={24} md={0}>
+                                        <PostListHor posts={posts.slice(1, 4)} />
+                                    </Col>
+                                </>
+                            }
 
                             <PostListHor posts={posts.slice(4)} />
                         </Space>

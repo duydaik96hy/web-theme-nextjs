@@ -38,7 +38,7 @@ const PostItemHorCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
                 <Col className="md:col-span-5 flex flex-col justify-between h-full">
                     {/* Tiêu đề và mô tả */}
                     <div>
-                        <span
+                        <h2
                             className="font-semibold text-base hover:text-red-500 overflow-hidden"
                             style={{
                                 display: '-webkit-box',
@@ -49,7 +49,7 @@ const PostItemHorCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
                             }}
                         >
                             {post?.title}
-                        </span>
+                        </h2>
                         {isShowDescriptionAndTime && (
                             <div className="text-justify">
                                 <span className="text-l line-clamp-8">

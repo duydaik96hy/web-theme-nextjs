@@ -22,7 +22,7 @@ export default async function HomePage() {
               <PostListHor posts={randomPosts} isShowDescriptionAndTime={false} />
             </Space>
           </Col>
-          <Col xs={24} sm={24} md={24} xl={12} className='w-full' style={{ height: 'auto', overflow: 'auto' }}>
+          <Col xs={24} sm={24} md={24} xl={12} className='w-full border-l-2 border-gray-300' style={{ height: 'auto', overflow: 'auto' }}>
             {recentPosts.length > 0 ? (
               <PostListVerCenter post={recentPosts[0]} />
             ) : (

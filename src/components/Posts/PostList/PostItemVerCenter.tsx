@@ -32,7 +32,7 @@ const PostItemVerCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
                         alt="post logo"
                         className="object-fill w-full rounded-lg"
                     />
-                    <span
+                    <h2
                         className="font-semibold text-lg text-justify hover:text-red-500 overflow-hidden"
                         style={{
                             display: '-webkit-box',
@@ -43,7 +43,7 @@ const PostItemVerCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
                         }}
                     >
                         {post?.title}
-                    </span>
+                    </h2>
                     {isShowDescriptionAndTime && (
                         <>
                             <div className="text-l text-justify line-clamp-3">
