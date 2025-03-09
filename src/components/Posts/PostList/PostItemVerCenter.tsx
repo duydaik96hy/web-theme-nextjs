@@ -28,12 +28,12 @@ const PostListVerCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
             <Col className="justify-center">
                 <Space direction="vertical" className="w-full">
                     <img
-                        src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
+                        src={post?.banner_images[0] ?? "/static/img/logo.png"}
                         alt="post logo"
                         className="object-fill w-full"
                     />
                     <span
-                        className="font-semibold text-lg hover:text-red-500 overflow-hidden"
+                        className="font-semibold text-lg text-justify hover:text-red-500 overflow-hidden"
                         style={{
                             display: '-webkit-box',
                             WebkitBoxOrient: 'vertical',
@@ -46,7 +46,7 @@ const PostListVerCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
                     </span>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div className="text-l line-clamp-3">
+                            <div className="text-l text-justifyline-clamp-3">
                                 {post?.description}
                             </div>
                             <div className="text-l">

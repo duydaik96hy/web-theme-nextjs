@@ -29,8 +29,9 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
                 <Col className="flex justify-center md:col-span-4">
                     <div className="flex items-center justify-center">
                         <img
-                            src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
+                            src={post?.banner_images[0] ?? "/static/img/logo.png"}
                             alt="post logo"
+                            className="object-fill w-full h-full rounded-1xl"
                         />
                     </div>
                 </Col>
@@ -49,7 +50,7 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
                     </span>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div>
+                            <div className="text-justify">
                                 <span className="text-l line-clamp-3">{post?.description}</span>
                             </div><div className="text-l">
                                 <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>

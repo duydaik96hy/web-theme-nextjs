@@ -1,7 +1,8 @@
 import React from 'react';
 import PostHeader from './PostHeader';
-import PostDescription from './PostDescription/PostDescription';
+import PostDescription from './PostContent';
 import { IPost } from '@/types/post';
+import { Space } from 'antd';
 
 export interface IPostDetailContentProps {
   post: IPost | null;
@@ -10,10 +11,10 @@ export interface IPostDetailContentProps {
 
 const PostDetailContent = ({ post, categoryName }: IPostDetailContentProps) => {
   return (
-    <>
+    <Space direction='vertical' size='middle'>
       <PostHeader post={post!} categoryName={categoryName} />
       <PostDescription post={post!} />
-    </>
+    </Space>
   );
 };
 

@@ -28,12 +28,12 @@ const PostItemVer = async ({ post, isShowDescriptionAndTime = true }: IPostItemV
             <Col className="justify-center border-b-2 border-gray-300 pt-4">
                 <Space direction="vertical" className="w-full">
                     <img
-                        src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
+                        src={post?.banner_images[0] ?? "/static/img/logo.png"}
                         alt="post logo"
-                    // className="object-cover w-[300px] h-[180px] rounded-1xl"
+                        className="object-fit w-full rounded-1xl"
                     />
                     <span
-                        className="font-semibold text-lg hover:text-red-500 overflow-hidden"
+                        className="font-semibold text-lg text-justify hover:text-red-500 overflow-hidden"
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 2,
@@ -45,7 +45,7 @@ const PostItemVer = async ({ post, isShowDescriptionAndTime = true }: IPostItemV
                     </span>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div className="text-l line-clamp-3">{post?.description}</div>
+                            <div className="text-l text-justify line-clamp-3">{post?.description}</div>
                             <div className="text-l">
                                 <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
                             </div>

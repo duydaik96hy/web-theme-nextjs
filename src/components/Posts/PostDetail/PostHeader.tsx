@@ -16,12 +16,9 @@ const PostHeader = ({ post, categoryName }: IPostHeaderProps) => {
 					{post?.title}
 				</h1>
 			</Row>
-			<Row>
-				<div className="flex">
-					<span className='font-semibold'><span className="ml-1 mt-1 mb-1 text-red-500">Danh mục:</span> {categoryName}</span>
-					<p>{'  '}</p>
-					<span className='font-semibold'><span className="ml-1 mt-1 mb-1 text-red-500">Đăng lúc:</span> {getLocaleDateTime(post?.created_at)}</span>
-				</div>
+			<Row className="flex">
+				<span className='font-semibold'><span className="text-red-500">Danh mục:</span> {categoryName}</span>
+				<span className='font-semibold ml-2'><span className="text-red-500">Đăng lúc:</span> {getLocaleDateTime(post?.created_at)}</span>
 			</Row>
 		</Col>
 	);

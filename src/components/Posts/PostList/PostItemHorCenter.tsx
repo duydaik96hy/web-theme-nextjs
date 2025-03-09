@@ -23,13 +23,13 @@ const PostItemHorCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
     return (
         <Link
             href={href}
-            className={'cursor-pointer text-black hover:text-black p-2'}
+            className={'cursor-pointer text-black hover:text-black'}
         >
-            <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2">
+            <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2 pt-2">
                 <Col className="flex justify-center md:col-span-7">
                     <div className="flex items-center justify-center">
                         <img
-                            src={post?.banner_images[0] ?? "/static/img/default.jpeg"}
+                            src={post?.banner_images[0] ?? "/static/img/logo.png"}
                             alt="post logo"
                             className="object-fill w-full h-full rounded-1xl"
                         />
@@ -51,7 +51,7 @@ const PostItemHorCenter = async ({ post, isShowDescriptionAndTime = true }: IPos
                     </span>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div>
+                            <div className="text-justify">
                                 <span className="text-l">{post?.description}</span>
                             </div><div className="text-l">
                                 <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>

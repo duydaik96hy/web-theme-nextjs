@@ -2,16 +2,15 @@ import { IPost, IPostCategory, IPostResponse } from '@/types/post';
 import {commonClient} from './common';
 import { webId } from '@/constants/common';
 
-export const getRecentPosts = async (query: string): Promise<IPost[]> => {
+export const getRecentPosts = async (query: string): Promise<IPostResponse> => {
     try {
-        console.log('query', query);
         return await commonClient(`/api/posts/recent?web_id=${webId}&${query}`, 'GET', undefined, true);
     } catch (error: any) {
         throw error;
     }
 };
 
-export const getTopViewsPosts = async (query: string): Promise<IPost[]> => {
+export const getTopViewsPosts = async (query: string): Promise<IPostResponse> => {
     try {
         return await commonClient(`/api/posts/top-views?web_id=${webId}&${query}`, 'GET', undefined, true);
     } catch (error: any) {
@@ -19,7 +18,7 @@ export const getTopViewsPosts = async (query: string): Promise<IPost[]> => {
     }
 };
 
-export const getRandomPosts = async (query: string): Promise<IPost[]> => {
+export const getRandomPosts = async (query: string): Promise<IPostResponse> => {
     try {
         return await commonClient(`/api/posts/random?web_id=${webId}&${query}`, 'GET', undefined, true);
     } catch (error: any) {
