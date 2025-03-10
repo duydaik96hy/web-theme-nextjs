@@ -6,12 +6,13 @@ import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Footer from "@/components/Shared/Footer";
 import { Col, Layout } from "antd";
+import { defaultWebDescription, defaultWebTitle } from "@/constants/common";
 
 const roboto = Roboto_Condensed({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Theme UI",
-  description: "Demo for Theme UI",
+  title: defaultWebTitle,
+  description: defaultWebDescription,
 };
 
 const RootLayout = async ({ children }: React.PropsWithChildren) => {

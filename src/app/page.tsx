@@ -6,7 +6,7 @@ import PostIndexListHor from '@/components/Posts/PostList/PostListIndexHor';
 import { getRandomPosts, getRecentPosts, getTopViewsPosts } from '@/service/posts';
 
 export default async function HomePage() {
-  const randomPosts = (await getRandomPosts("limit=10")).data;
+  const randomPosts = (await getRandomPosts("limit=6")).data;
   const recentPosts = (await getRecentPosts("limit=6")).data;
   const topViewsPosts = (await getTopViewsPosts("limit=5")).data;
 
@@ -30,12 +30,6 @@ export default async function HomePage() {
             )}
           </Col>
           <Col xs={0} sm={0} md={0} xl={6} className='w-full' style={{ height: 'auto', overflow: 'auto' }}>
-            <img
-              src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50928_banner_moi_quang_cao_01_14564616.jpg"
-              alt="ads"
-              style={{ width: '100%', height: 'auto' }}
-            />
-            <Divider />
             <Space direction="vertical" className="w-full bg-neutral-200 p-4 rounded-lg">
               <Col xs={24}>
                 <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin xem nhiều</h3>

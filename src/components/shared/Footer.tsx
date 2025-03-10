@@ -18,7 +18,7 @@ const Footer = async (props: IFooterProps) => {
   }));
   
   return (
-    <footer className="bg-[#DD162A] py-[18px] flex justify-center">
+    <footer className="bg-[#DD162A] py-[18px] flex justify-center mt-auto">
       <section className="max-w-[1162px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-4 sm:mx-8 lg:mx-0">
         <div className="flex justify-center items-center">
           <img

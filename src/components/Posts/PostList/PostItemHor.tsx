@@ -25,15 +25,15 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
             href={href}
             className={'cursor-pointer text-black hover:text-black'}
         >
-            <Row gutter={8} className="border-b-2 border-gray-300 pb-2 pt-4">
-                <Col span={8} className="justify-center items-center">
+            <Row gutter={8} className="border-b-2 border-gray-300 pb-2 pt-4 grid">
+                <Col span={8} className="justify-center items-center md:col-span-3">
                     <img
                         src={convertImageUrl(post?.banner_images[0]?.filename ?? '') ?? "/static/img/logo.png"}
                         alt="post logo"
                         className="object-fill w-full h-full rounded-lg max-h-[200px]"
                     />
                 </Col>
-                <Col span={16} className="flex flex-col justify-between h-full">
+                <Col span={16} className="md:col-span-9 flex flex-col justify-between h-full">
                     {/* Tiêu đề và mô tả */}
                     <div>
                         <h2
@@ -42,7 +42,6 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
                                 display: '-webkit-box',
                                 WebkitLineClamp: 2,
                                 WebkitBoxOrient: 'vertical',
-                                fontSize: '1.25em',
                                 lineHeight: '1.25em',
                             }}
                         >
