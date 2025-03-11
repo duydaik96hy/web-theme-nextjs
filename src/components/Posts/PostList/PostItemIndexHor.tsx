@@ -24,7 +24,7 @@ const PostItemIndexHor = async ({ post, index, isShowDescriptionAndTime = true }
     return (
         <Link
             href={ href }
-            className={'cursor-pointer text-black hover:text-black p-2 flex items-center border-b-2 border-gray-300 pb-2'}
+            className={'cursor-pointer text-black hover:text-black p-2 flex items-center'}
         >
             <div>
                 <Avatar size={40} style={{

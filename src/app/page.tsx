@@ -6,7 +6,7 @@ import PostIndexListHor from '@/components/Posts/PostList/PostListIndexHor';
 import { getRandomPosts, getRecentPosts, getTopViewsPosts } from '@/service/posts';
 
 export default async function HomePage() {
-  const randomPosts = (await getRandomPosts("limit=6")).data;
+  const randomPosts = (await getRandomPosts("limit=8")).data;
   const recentPosts = (await getRecentPosts("limit=6")).data;
   const topViewsPosts = (await getTopViewsPosts("limit=5")).data;
 
@@ -17,7 +17,7 @@ export default async function HomePage() {
     }}>
       <div className="hidden lg:hidden xl:block">
         <Row gutter={10} className='w-full border-b-2 border-gray-300 pb-4'>
-          <Col xs={0} md={0} xl={6} className='w-full' style={{ height: '65vh', overflow: 'auto' }}>
+          <Col xs={0} md={0} xl={6} className='w-full' style={{ height: 'auto', overflow: 'auto' }}>
             <Space direction="vertical" className="w-full">
               <PostListHor posts={randomPosts} isShowDescriptionAndTime={false} />
             </Space>

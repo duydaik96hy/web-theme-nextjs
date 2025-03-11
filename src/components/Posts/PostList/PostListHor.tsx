@@ -10,7 +10,7 @@ export interface IPostListHorProps {
 
 const PostListHor = ({ posts, isShowDescriptionAndTime = true }: IPostListHorProps) => {
     return (
-        <Row className="w-full">
+        <Row gutter={[8, 8]} className="w-full divide-y divide-gray-300">
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Col span={24} key={post.id}>

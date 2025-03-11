@@ -25,7 +25,7 @@ const PostItemVer = async ({ post, isShowDescriptionAndTime = true }: IPostItemV
             href={href}
             className={'cursor-pointer text-black hover:text-black'}
         >
-            <Col className="justify-center border-b-2 border-gray-300 pt-2 pb-2">
+            <Col className="justify-center pt-2 pb-2">
                 <Space direction="vertical" className="w-full">
                     <img
                         src={convertImageUrl(post?.banner_images[0]?.filename ?? '') ?? "/static/img/logo.png"}

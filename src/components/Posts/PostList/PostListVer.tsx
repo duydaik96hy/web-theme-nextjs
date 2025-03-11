@@ -10,7 +10,7 @@ export interface IPostListVerProps {
 
 const PostListVer = ({ posts, isShowDescriptionAndTime = true }: IPostListVerProps) => {
     return (
-        <Col span={24} className="w-full">
+        <Col span={24} className="w-full divide-y divide-gray-300">
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Row gutter={[8, 8]} key={post.id}>
