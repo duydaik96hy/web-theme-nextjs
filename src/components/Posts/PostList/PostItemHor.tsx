@@ -25,15 +25,15 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
             href={href}
             className={'cursor-pointer text-black hover:text-black'}
         >
-            <Row gutter={8} className="pb-2 pt-4 grid">
-                <Col span={6} className="justify-center items-center md:col-span-3">
+            <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-2 pb-2 pt-4">
+                <Col className="justify-center items-center md:col-span-3">
                     <img
                         src={convertImageUrl(post?.banner_images[0]?.filename ?? '') ?? "/static/img/logo.png"}
                         alt="post logo"
-                        className="object-fill w-full h-full rounded-lg max-h-[200px]"
+                        className="object-fill w-full h-full rounded-lg aspect-[15/9]"
                     />
                 </Col>
-                <Col span={18} className="md:col-span-9 flex flex-col justify-between h-full">
+                <Col className="md:col-span-9 flex flex-col justify-between h-full">
                     {/* Tiêu đề và mô tả */}
                     <div>
                         <h2
@@ -49,7 +49,9 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
                         </h2>
                         {isShowDescriptionAndTime && (
                             <div className="text-justify">
-                                <span className="text-l line-clamp-3">{post?.description}</span>
+                                <span className="text-l line-clamp-3">
+                                    {post?.description}
+                                </span>
                             </div>
                         )}
                     </div>
@@ -61,7 +63,7 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
                         </div>
                     )}
                 </Col>
-            </Row>
+            </div>
         </Link>
     );
 };

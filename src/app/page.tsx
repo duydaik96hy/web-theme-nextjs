@@ -4,10 +4,11 @@ import PostListHor from '@/components/Posts/PostList/PostListHor';
 import PostListVerCenter from '@/components/Posts/PostList/PostItemVerCenter';
 import PostIndexListHor from '@/components/Posts/PostList/PostListIndexHor';
 import { getRandomPosts, getRecentPosts, getTopViewsPosts } from '@/service/posts';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 export default async function HomePage() {
   const randomPosts = (await getRandomPosts("limit=8")).data;
-  const recentPosts = (await getRecentPosts("limit=6")).data;
+  const recentPosts = (await getRecentPosts("limit=9")).data;
   const topViewsPosts = (await getTopViewsPosts("limit=5")).data;
 
   return (
@@ -52,12 +53,34 @@ export default async function HomePage() {
             <h3 className="text-xl font-semibold text-center m-4 uppercase underline underline-offset-8 decoration-red-600 justify-center">
               Tin mới nhất</h3>
             {recentPosts.length > 1 ? (
-              <PostListHor posts={recentPosts.slice(1)} isShowDescriptionAndTime={true} />
+              <Row gutter={8} className="w-full">
+                <Col span={12}>
+                  <PostListHor posts={recentPosts.slice(1, 5)} isShowDescriptionAndTime={true} />
+                </Col>
+                <Col span={12}>
+                  <PostListHor posts={recentPosts.slice(5, 9)} isShowDescriptionAndTime={true} />
+                </Col>
+              </Row>
             ) : (
               <p style={{ textAlign: "center" }}>Không có bài nào</p>
             )}
           </Space>
         </Col>
+        <Row className='w-full mt-4 justify-center items-center'>
+          <div className="flex items-center gap-8">
+            <button disabled className="rounded-md border border-slate-300 p-2.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+              <ArrowLeftOutlined />
+            </button>
+
+            <p className="text-slate-600">
+              Trang <strong className="text-slate-800">1</strong> trên&nbsp;<strong className="text-slate-800">10</strong>
+            </p>
+
+            <button className="rounded-md border border-slate-300 p-2.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+              <ArrowRightOutlined />
+            </button>
+          </div>
+        </Row>
       </Row>
       <div className="w-full xl:hidden mt-4">
         <Space direction="vertical" className="w-full">
