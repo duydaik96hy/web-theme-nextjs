@@ -4,12 +4,13 @@ import PostListHor from '@/components/Posts/PostList/PostListHor';
 import PostListVerCenter from '@/components/Posts/PostList/PostItemVerCenter';
 import PostIndexListHor from '@/components/Posts/PostList/PostListIndexHor';
 import { getRandomPosts, getRecentPosts, getTopViewsPosts } from '@/service/posts';
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 export default async function HomePage() {
   const randomPosts = (await getRandomPosts("limit=8")).data;
-  const recentPosts = (await getRecentPosts("limit=9")).data;
   const topViewsPosts = (await getTopViewsPosts("limit=5")).data;
+
+  const recentPostsResp = await getRecentPosts("limit=9");
+  const recentPosts = recentPostsResp.data;
 
   return (
     <div style={{
@@ -66,21 +67,6 @@ export default async function HomePage() {
             )}
           </Space>
         </Col>
-        <Row className='w-full mt-4 justify-center items-center'>
-          <div className="flex items-center gap-8">
-            <button disabled className="rounded-md border border-slate-300 p-2.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-              <ArrowLeftOutlined />
-            </button>
-
-            <p className="text-slate-600">
-              Trang <strong className="text-slate-800">1</strong> trên&nbsp;<strong className="text-slate-800">10</strong>
-            </p>
-
-            <button className="rounded-md border border-slate-300 p-2.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-              <ArrowRightOutlined />
-            </button>
-          </div>
-        </Row>
       </Row>
       <div className="w-full xl:hidden mt-4">
         <Space direction="vertical" className="w-full">

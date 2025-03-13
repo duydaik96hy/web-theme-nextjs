@@ -10,30 +10,32 @@ import { convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons';
 import { siteUrl } from '@/constants/common';
+import Pagination from '@/components/Shared/Pagination';
 
 interface CategoryPostProps {
     params: { category: string };
+    searchParams: { page?: string };
 }
 
 // Lấy dữ liệu cho cả trang và metadata trong cùng 1 API call
-async function getCategoryData(categorySlug: string) {
+async function getPageData(categorySlug: string, currentPage: number = 1) {
     const postCategories = await getPostsCategories(""); // Gọi API 1 lần duy nhất
     const categoryObj = postCategories.find((item) => convertTitleToSlug(item.name) === categorySlug)
         ?? { id: "", name: "Khác", description: "Khác", code: "tin tức, bài viết", created_at: new Date(), updated_at: new Date() };
 
     // Gọi nhiều API cùng lúc để giảm thời gian chờ
     const [recentPosts, topViewsPosts] = await Promise.all([
-        getRecentPosts(`category=${categoryObj.id}&limit=10`),
+        getRecentPosts(`category=${categoryObj.id}&limit=10&page=${currentPage}`),
         getTopViewsPosts(`category=${categoryObj.id}&limit=6`)
     ]);
 
-    return { categoryObj, posts: recentPosts.data, topViewsPosts: topViewsPosts.data };
+    return { categoryObj, posts: recentPosts.data, postsPagination: recentPosts.pagination, topViewsPosts: topViewsPosts.data };
 }
 
 // Chia sẻ dữ liệu với `generateMetadata`
 export async function generateMetadata({ params }: CategoryPostProps) {
     const { category } = await params;
-    const { categoryObj } = await getCategoryData(category);
+    const { categoryObj } = await getPageData(category);
     const currentUrl = `${siteUrl}/${category}`;
 
     return {
@@ -56,9 +58,13 @@ export async function generateMetadata({ params }: CategoryPostProps) {
     };
 }
 
-const HomePage = async ({ params }: CategoryPostProps) => {
+const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
     const { category } = await params;
-    const { categoryObj, posts, topViewsPosts } = await getCategoryData(category); // API chỉ gọi 1 lần
+    const { page } = await searchParams;
+    const currentPage = Number(page) || 1;
+    const { categoryObj, posts, postsPagination, topViewsPosts } = await getPageData(category, currentPage); // API chỉ gọi 1 lần
+
+    const totalPages = postsPagination.last_page;
 
     return (
         <div style={{ padding: "45px 0px 24px", overflow: "hidden" }}>
@@ -96,6 +102,9 @@ const HomePage = async ({ params }: CategoryPostProps) => {
 
                             <PostListHor posts={posts.slice(4)} />
                         </Space>
+                        
+                        {/* PHÂN TRANG */}
+                        <Pagination currentPage={currentPage} totalPages={totalPages} />
                     </Col>
 
                     <Col xs={24} md={24} lg={6}>

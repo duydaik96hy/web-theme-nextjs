@@ -21,8 +21,6 @@ const RootLayout = async ({ children }: React.PropsWithChildren) => {
   const url = headersList.get('x-url') || '';
   // get pathname form url
   const pathName = new URL(url).pathname;
-  console.log('pathName', pathName);
-
   const isAuthPage = ['/login', '/register'].includes(pathName);
   return (
     <html lang="en">
