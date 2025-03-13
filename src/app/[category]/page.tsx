@@ -10,7 +10,7 @@ import { convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons';
 import { siteUrl } from '@/constants/common';
-import Pagination from '@/components/Shared/Pagination';
+import Pagination from '@/components/Common/Pagination';
 
 interface CategoryPostProps {
     params: { category: string };

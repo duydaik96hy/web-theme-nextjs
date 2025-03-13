@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import HeaderMenu from '@/components/Menu/HeaderMenu';
+import HeaderMenu from '@/components/MenuHeader/HeaderMenu';
 import { headers } from 'next/headers';
 import { Roboto_Condensed } from 'next/font/google';
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import Footer from "@/components/Shared/Footer";
+import Footer from "@/components/Common/Footer";
 import { Col, Layout } from "antd";
 import { defaultWebDescription, defaultWebTitle } from "@/constants/common";
 

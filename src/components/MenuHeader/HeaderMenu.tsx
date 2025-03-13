@@ -1,5 +1,4 @@
 import MenuItemsHeader from './MenuItems';
-import AuthMenu from './AuthMenu';
 import Link from 'next/link';
 import { IPostCategory } from '@/types/post';
 import { getPostsCategories } from '@/service/posts';
