@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { IPostCategory } from '@/types/post';
 import { getPostsCategories } from '@/service/posts';
 import { convertTitleToSlug } from '@/helpers/string';
+import { Row } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 
 interface IHeaderMenuProps {
     showAuthMenu: boolean;
@@ -20,16 +22,15 @@ const HeaderMenu = async ({ showAuthMenu }: IHeaderMenuProps) => {
     }));
 
     return (
-        <header className="h-14 grid grid-cols-12 fixed top-0 z-50 header">
-            <div className="col-span-2 col-start-2 flex items-center">
-                <Link href="/">
-                    <img src="/static/img/logo.png" alt="logo" className="w-full h-[50px]" />
+        <header className="w-full sticky top-0 z-50 bg-white">
+            <div className="flex justify-center items-center px-4 py-3 font-semibold overflow-visible">
+                {/* Nút Home */}
+                <Link href="/" className="text-gray-700 hover:text-red-600 text-xl mr-4">
+                    <HomeOutlined />
                 </Link>
-            </div>
-            <div className="menu col-span-8 flex-grow lg:flex lg:w-auto lg:px-3 px-8">
-                <div className="text-md font-bold text-blue-700 lg:flex-grow lg:flex overflow-x-auto">
-                    <MenuItemsHeader items={items} />
-                </div>
+
+                {/* Menu chính */}
+                <MenuItemsHeader items={items} />
             </div>
         </header>
     );

@@ -7,6 +7,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Footer from "@/components/Common/Footer";
 import { Col, Layout } from "antd";
 import { defaultWebDescription, defaultWebTitle } from "@/constants/common";
+import HeaderTitle from "@/components/MenuHeader/Header";
 
 const roboto = Roboto_Condensed({ subsets: ['latin'] });
 
@@ -25,13 +26,14 @@ const RootLayout = async ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en">
       <body className={roboto.className}>
-          <AntdRegistry>
-            <Col xs={23} sm={23} md={22} lg={22} xl={20} className="mx-auto">
-              <HeaderMenu showAuthMenu={!isAuthPage} />
-              {children}
-            </Col>
-            <Footer />
-          </AntdRegistry>
+        <AntdRegistry>
+          <HeaderTitle />
+          <HeaderMenu showAuthMenu={!isAuthPage} />
+          <Col xs={23} sm={23} md={22} lg={22} xl={20} className="mx-auto">
+            {children}
+          </Col>
+          <Footer />
+        </AntdRegistry>
       </body>
     </html>
   );
