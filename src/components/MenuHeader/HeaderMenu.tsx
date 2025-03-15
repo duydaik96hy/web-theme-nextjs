@@ -21,14 +21,20 @@ const HeaderMenu = async ({ showAuthMenu }: IHeaderMenuProps) => {
         ),
     }));
 
-    return (
-        <header className="w-full sticky top-0 z-50 bg-white">
-            <div className="flex justify-center items-center px-4 py-3 font-semibold overflow-visible">
-                {/* Nút Home */}
-                <Link href="/" className="text-gray-700 hover:text-red-600 text-xl mr-4">
-                    <HomeOutlined />
-                </Link>
+    const homeItem = {
+        key: 'home',
+        label: (
+            <Link href="/">
+                <HomeOutlined style={{ fontSize: '20px' }} />
+            </Link>
+        ),
+    };
 
+    items.unshift(homeItem);
+
+    return (
+        <header className="w-full sticky top-0 z-50 custom-menu">
+            <div className="flex justify-center items-center px-4 py-3 font-semibold overflow-visible">
                 {/* Menu chính */}
                 <MenuItemsHeader items={items} />
             </div>

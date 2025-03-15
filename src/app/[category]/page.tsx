@@ -67,7 +67,7 @@ const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
     const totalPages = postsPagination.last_page;
 
     return (
-        <div style={{ padding: "45px 0px 24px", overflow: "hidden" }}>
+        <div style={{ padding: "0px 0px 24px", overflow: "hidden" }}>
             <Breadcrumb
                 items={[
                     { title: <Link href="/"><HomeOutlined /> Trang chủ</Link> },

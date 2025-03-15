@@ -50,7 +50,7 @@ const HomePage = async ({ params }: BlogPostProps) => {
     const postId = id.split('-').pop() || '';
 
     return (
-        <div style={{}}>
+        <div style={{ padding: '0px 0px 24px' }}>
             <PostDetail postId={postId} />
         </div>
     );

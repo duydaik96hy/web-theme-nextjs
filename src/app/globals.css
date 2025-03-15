@@ -33,8 +33,20 @@ menu {
   top: 0;
   left: 0;
   right: 0;
-  background-color: white;
-  /* color: white; */
+  background-color: rgb(255, 41, 41);
+  color: white;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+.custom-menu {
+  background-color: #ff2a2d !important; /* Màu nền */
+}
+
+.custom-menu .ant-menu-item {
+  background-color: #ff2a2d !important; /* Màu nền */
+  color: white !important; /* Màu chữ */
+}
+
+/* .custom-menu .ant-menu-item:hover {
+  background-color: #d9363e !important; /* Màu khi hover */

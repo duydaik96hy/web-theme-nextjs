@@ -5,7 +5,7 @@ import { Roboto_Condensed } from 'next/font/google';
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Footer from "@/components/Common/Footer";
-import { Col, Layout } from "antd";
+import { Col, Divider, Layout } from "antd";
 import { defaultWebDescription, defaultWebTitle } from "@/constants/common";
 import HeaderTitle from "@/components/MenuHeader/Header";
 

@@ -52,3 +52,8 @@ export interface IBannerImage {
     created_at?: string;
     updated_at?: string;
 }
+
+export interface IPostsCategoryData {
+    category: IPostCategory;
+    posts: IPost[];
+}
