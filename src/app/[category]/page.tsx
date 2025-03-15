@@ -107,7 +107,7 @@ const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
                         <Pagination currentPage={currentPage} totalPages={totalPages} />
                     </Col>
 
-                    <Col xs={24} md={24} lg={6}>
+                    <Col xs={24} md={24} lg={6} className='w-full mt-4 lg:mt-0'>
                         <Space direction="vertical" className="w-full bg-neutral-200 p-4 rounded-lg">
                             <Col xs={24}>
                                 <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin xem nhiều</h3>

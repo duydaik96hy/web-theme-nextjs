@@ -33,12 +33,11 @@ const HeaderMenu = async ({ showAuthMenu }: IHeaderMenuProps) => {
     items.unshift(homeItem);
 
     return (
-        <header className="w-full sticky top-0 z-50 custom-menu">
-            <div className="flex justify-center items-center px-4 py-3 font-semibold overflow-visible">
-                {/* Menu chính */}
+        <nav className="w-full sticky top-0 z-50 custom-navbar">
+            <div className="flex px-4 py-2 space-x-4 overflow-x-auto scrollbar-hide">
                 <MenuItemsHeader items={items} />
             </div>
-        </header>
+        </nav>
     );
 };
 

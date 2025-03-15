@@ -17,9 +17,9 @@ const PostListVerWithTitle = ({ posts, title, isShowDescriptionAndTime = true }:
                         {title}
                     </h3>
                     {posts.length > 1 ? (
-                        <Row gutter={16} className="flex items-stretch w-ful">
+                        <Row gutter={16} className="flex items-stretch w-ful divide-x divide-gray-300">
                             {posts.map((post) => (
-                                <Col key={post.id} md={6} sm={12} xs={24} className="flex flex-col divide-y divide-gray-300">
+                                <Col key={post.id} lg={6} md={12} sm={12} xs={24} className="flex flex-col divide-y divide-gray-300">
                                     <PostItemVer post={post} isShowDescriptionAndTime={isShowDescriptionAndTime} />
                                 </Col>
                             ))}

@@ -39,14 +39,11 @@ menu {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.custom-menu {
+.custom-navbar {
   background-color: #ff2a2d !important; /* Màu nền */
 }
 
-.custom-menu .ant-menu-item {
+.custom-navbar .ant-menu-item {
   background-color: #ff2a2d !important; /* Màu nền */
   color: white !important; /* Màu chữ */
 }
-
-/* .custom-menu .ant-menu-item:hover {
-  background-color: #d9363e !important; /* Màu khi hover */
