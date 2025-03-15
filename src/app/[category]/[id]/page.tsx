@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Col } from 'antd';
 import PostDetail from '@/components/Posts/PostDetail/PostDetail';
 import { getPostById } from '@/service/posts';
 import { convertImageUrl } from '@/helpers/string';

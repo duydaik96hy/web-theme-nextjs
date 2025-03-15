@@ -1,6 +1,5 @@
 import { apiEndpoint } from '@/constants/common';
 import { getToken, logout } from '@/helpers/auth';
-import {notification} from "antd";
 
 export const getData = async (response: Response) => {
   const responseData = await response.json();
@@ -19,7 +18,7 @@ export const getData = async (response: Response) => {
   return responseData.data;
 };
 
-export const commonClient = async (url: string, method: string, data?: any, excludeToken: boolean = false) => {
+export const commonClient = async (url: string, method: string, data?: unknown, excludeToken: boolean = false) => {
     const token = excludeToken ? '' : getToken() || '';
 
     const headers = {

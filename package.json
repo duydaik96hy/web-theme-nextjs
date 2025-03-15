@@ -17,6 +17,7 @@
     "ant-design": "^1.0.0",
     "antd": "^5.24.2",
     "next": "15.1.7",
+    "postcss-modules": "^6.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tanstack": "^1.0.0"
@@ -26,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "postcss": "^8",

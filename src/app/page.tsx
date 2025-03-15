@@ -1,7 +1,7 @@
 import React from 'react';
-import { Row, Col, Space, Divider } from "antd";
+import { Row, Col } from "antd";
 import PostItemVerCenter from '@/components/Posts/PostList/PostItemVerCenter';
-import { getPostsCategories, getRandomPosts, getRecentPosts, getTopViewsPosts } from '@/service/posts';
+import { getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/posts';
 import PostItemVer from '@/components/Posts/PostList/PostItemVer';
 import PostListVerWithTitle from '@/components/Posts/PostListWithTitle/PostListVerWithTitle';
 import { IPostsCategoryData } from '@/types/post';
@@ -13,9 +13,8 @@ export default async function HomePage() {
   /// Get post categories
   let listDataCategory: IPostsCategoryData[] = [];
   const postCategories = await getPostsCategories("");
-  const postCategoriesIds = postCategories.map((category) => category.id);
   const categoryPromises = postCategories.map(async (category) => {
-    let data = await getRecentPosts(`category=${category.id}&limit=4`);
+    const data = await getRecentPosts(`category=${category.id}&limit=4`);
     return { category: category, posts: data.data };
   });
   listDataCategory = await Promise.all(categoryPromises);

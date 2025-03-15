@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Layout, Space, Divider, Breadcrumb } from "antd";
+import { Row, Col, Space, Breadcrumb } from "antd";
 import { Content } from "antd/es/layout/layout";
 import PostListHor from '@/components/Posts/PostList/PostListHor';
 import PostItemVer from '@/components/Posts/PostList/PostItemVer';

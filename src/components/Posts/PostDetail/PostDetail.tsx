@@ -5,9 +5,8 @@ import PostDetailContent from './PostDetailContent';
 import { getPostById, getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/posts';
 import { HomeOutlined } from '@ant-design/icons';
 import Link from 'next/link';
-import { convertImageUrl, convertTitleToSlug } from '@/helpers/string';
+import { convertTitleToSlug } from '@/helpers/string';
 import PostListHor from '../PostList/PostListHor';
-import Head from 'next/head';
 import PostListVerWithTitle from '../PostListWithTitle/PostListVerWithTitle';
 
 export interface IPostDetailProps {

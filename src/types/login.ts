@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export interface ILoginRequest {
   phone_or_email?: string;
   password?: string;
