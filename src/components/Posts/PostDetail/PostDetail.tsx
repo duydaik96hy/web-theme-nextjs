@@ -16,8 +16,8 @@ export interface IPostDetailProps {
 
 const PostDetail = async ({ postId }: IPostDetailProps) => {
   const post = await getPostById(postId);
-  const sameCategoryPosts = (await getRecentPosts(`category=${post?.category}&limit=5`)).data;
-  const topViewsPosts = (await getTopViewsPosts("limit=8")).data;
+  const sameCategoryPosts = (await getRecentPosts(`category=${post?.category}&limit=8`)).data;
+  const topViewsPosts = (await getTopViewsPosts("limit=5")).data;
   const postCategories = await getPostsCategories("");
   const categoryObj = postCategories.find((item) => item.id === post?.category) ?? { name: 'Khác' };
 
@@ -45,9 +45,9 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
         {/* Sidebar Desktop */}
         <Col xs={0} sm={0} md={0} lg={0} xl={6} className={styles.sidebar}>
           <Space direction="vertical" className={styles.sidebarContent}>
-            <h3 className={styles.sidebarTitle}>Cùng chuyên mục</h3>
-            {sameCategoryPosts.length > 0 ? (
-              <PostListVer posts={sameCategoryPosts} isShowDescriptionAndTime={true} />
+            <h3 className={styles.sidebarTitle}>Xem nhiều</h3>
+            {topViewsPosts.length > 0 ? (
+              <PostListVer posts={topViewsPosts} isShowDescriptionAndTime={true} />
             ) : (
               <p>Không có dữ liệu</p>
             )}
@@ -56,16 +56,16 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
 
         {/* Sidebar Mobile */}
         <Col xs={24} sm={24} md={24} lg={24} xl={0} className={styles.mobileSidebar}>
-          <h3 className={styles.sidebarTitle}>Cùng chuyên mục</h3>
-          {sameCategoryPosts.length > 0 ? (
-            <PostListHor posts={sameCategoryPosts} isShowDescriptionAndTime={true} />
+          <h3 className={styles.sidebarTitle}>Xem nhiều</h3>
+          {topViewsPosts.length > 0 ? (
+            <PostListHor posts={topViewsPosts} isShowDescriptionAndTime={true} />
           ) : (
             <p>Không có dữ liệu</p>
           )}
         </Col>
       </Row>
 
-      <PostListVerWithTitle posts={topViewsPosts.slice(0, 8)} title="Tin xem nhiều trong chuyên mục" />
+      <PostListVerWithTitle posts={sameCategoryPosts.slice(0, 8)} title="Tin cùng chuyên mục" />
     </Col>
   );
 };
