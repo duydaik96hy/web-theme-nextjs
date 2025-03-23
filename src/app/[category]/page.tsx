@@ -11,7 +11,8 @@ import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons';
 import { siteUrl } from '@/constants/common';
 import Pagination from '@/components/Common/Pagination';
-import styles from './CategoryPage.module.css';
+import styles from './category_page.module.css';
+import PostItemVerCenter from '@/components/Posts/PostList/PostItemVerCenter';
 
 interface CategoryPostProps {
     params: { category: string };
@@ -81,11 +82,38 @@ const CategoryPage = async ({ params, searchParams }: CategoryPostProps) => {
                 <Row gutter={10} className={styles.mainContent}>
                     <Col xs={24} md={24} lg={18} className={styles.leftContent}>
                         <Space direction="vertical">
-                            {posts.length > 0 ? <PostItemHorCenter post={posts[0]} /> : <p>Không có bài viết nào</p>}
+                            {/* {posts.length > 0 ? <PostItemHorCenter post={posts[0]} /> : <p>Không có bài viết nào</p>} */}
+                            <div className={styles.desktopOnly}>
+                                <Row gutter={16} className={styles.fullWidth}>
+                                    <Col xs={24} sm={24} md={24} lg={18} xl={18} className={styles.fullWidth}>
+                                        {posts.length > 0 ? (
+                                            <PostItemVerCenter post={posts[0]} />
+                                        ) : (
+                                            <p style={{ textAlign: "center" }}>Không có bài nào</p>
+                                        )}
+                                    </Col>
+                                    <Col xs={24} sm={24} md={12} lg={6} xl={6} className={styles.fullWidth}>
+                                        <Row gutter={[8, 8]} className={styles.flexStretch}>
+                                            {posts.slice(1, 4).map((post) => (
+                                                <Col key={post.id} span={24} className={styles.flexColumn}>
+                                                    <PostItemVer post={post} isShowDescriptionAndTime={false} />
+                                                </Col>
+                                            ))}
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </div>
+                            <div className={styles.mobileOnly}>
+                                {posts.length > 0 ? (
+                                    <PostItemVerCenter post={posts[0]} />
+                                ) : (
+                                    <p style={{ textAlign: "center" }}>Không có bài nào</p>
+                                )}
+                            </div>
 
                             {/* Grid hiển thị bài viết */}
                             <div className={styles.postGrid}>
-                                <Col xs={0} sm={0} md={24}>
+                                {/* <Col xs={0} sm={0} md={24}>
                                     <Row gutter={8} className={styles.flexContainer}>
                                         {posts.slice(1, 4).map((post) => (
                                             <Col key={post.id} span={8} className={styles.flexColumn}>
@@ -93,7 +121,7 @@ const CategoryPage = async ({ params, searchParams }: CategoryPostProps) => {
                                             </Col>
                                         ))}
                                     </Row>
-                                </Col>
+                                </Col> */}
 
                                 <Col xs={24} sm={24} md={0}>
                                     <PostListHor posts={posts.slice(1, 4)} />
@@ -102,7 +130,7 @@ const CategoryPage = async ({ params, searchParams }: CategoryPostProps) => {
 
                             <PostListHor posts={posts.slice(4)} />
                         </Space>
-                        
+
                         {/* PHÂN TRANG */}
                         <Pagination currentPage={currentPage} totalPages={totalPages} />
                     </Col>

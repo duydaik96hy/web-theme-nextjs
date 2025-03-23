@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConfigProvider } from "antd";
-import styles from './CategoryPage.module.css';
+import styles from './category_page.module.css';
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
     return (

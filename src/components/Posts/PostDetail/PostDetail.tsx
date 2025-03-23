@@ -17,7 +17,7 @@ export interface IPostDetailProps {
 const PostDetail = async ({ postId }: IPostDetailProps) => {
   const post = await getPostById(postId);
   const sameCategoryPosts = (await getRecentPosts(`category=${post?.category}&limit=5`)).data;
-  const topViewsPosts = (await getTopViewsPosts("limit=4")).data;
+  const topViewsPosts = (await getTopViewsPosts("limit=8")).data;
   const postCategories = await getPostsCategories("");
   const categoryObj = postCategories.find((item) => item.id === post?.category) ?? { name: 'Khác' };
 
@@ -65,7 +65,7 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
         </Col>
       </Row>
 
-      <PostListVerWithTitle posts={topViewsPosts.slice(0, 4)} title="Tin xem nhiều trong chuyên mục" />
+      <PostListVerWithTitle posts={topViewsPosts.slice(0, 8)} title="Tin xem nhiều trong chuyên mục" />
     </Col>
   );
 };

@@ -26,8 +26,8 @@
 }
 
 .postGrid {
-    border-bottom: 2px solid #e5e7eb;
-    margin-bottom: 16px;
+    /* border-bottom: 2px solid #e5e7eb; */
+    /* margin-bottom: 16px; */
 }
 
 .flexColumn {
@@ -66,4 +66,34 @@
 .flexContainer {
     display: flex;         /* Chế độ Flexbox */
     align-items: stretch;  /* Căn chỉnh các phần tử con kéo dài */
+}
+
+.desktopOnly {
+    display: none;
+    /* border-bottom: 2px solid #d1d5db; */
+    /* padding-bottom: 16px; */
+}
+
+@media (min-width: 1280px) {
+    .desktopOnly {
+        display: block;
+    }
+}
+
+.mobileOnly {
+    display: block;
+    /* border-bottom: 2px solid #d1d5db; */
+    /* padding-bottom: 16px; */
+}
+
+@media (min-width: 1280px) {
+    .mobileOnly {
+        display: none;
+    }
+}
+
+.fullWidth {
+    width: 100%;
+    height: auto;
+    overflow: auto;
 }

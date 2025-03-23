@@ -7,7 +7,7 @@ import Footer from "@/components/Common/Footer";
 import { Col } from "antd";
 import HeaderTitle from "@/components/MenuHeader/Header";
 import { getWebInfo } from "@/service/web";
-import styles from "./HomePage.module.css";
+import styles from "./home_page.module.css";
 
 const roboto = Roboto_Condensed({ subsets: ['latin'] });
 
