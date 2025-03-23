@@ -7,6 +7,16 @@
     margin-top: auto;
 }
 
+.footer_1 a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.footer_1 a:hover {
+    color: blue;
+}
+
 .section_1 {
     max-width: 1162px;
     display: grid;
@@ -193,4 +203,3 @@
     font-size: 14px;
     color: #64748b;
 }
-

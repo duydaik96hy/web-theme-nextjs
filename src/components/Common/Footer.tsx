@@ -4,10 +4,15 @@ import { IPostCategory } from '@/types/post';
 import Link from 'next/link';
 import React from 'react';
 import styles from './common.module.css';
+import { getWebInfo } from '@/service/web';
 
-export interface IFooterProps {}
+export interface IFooterProps {
+    hostName: string;
+}
 
-const Footer = async (props: IFooterProps) => {
+const Footer = async ({ hostName }: IFooterProps) => {
+  const webInfo = await getWebInfo(hostName);
+  const contact = webInfo[0]?.contact;
   const postCategories = await getPostsCategories("");
   const items = postCategories.map((category: IPostCategory) => ({
       key: category.code.toLocaleLowerCase(),
@@ -23,8 +28,8 @@ const Footer = async (props: IFooterProps) => {
       <section className={styles.section_1}>
         <div className={styles.div_1}>
           <img
-            src="/static/img/logo.png"
-            alt="Edusun logo"
+            src={webInfo[0]?.logo ?? "/static/img/logo.png"}
+            alt="Logo"
             width="271"
             height="120"
             className={styles.img_1}
@@ -34,15 +39,9 @@ const Footer = async (props: IFooterProps) => {
           <div>
             <h3 className={styles.h3_1}>Thông tin liên hệ</h3>
             <ul className={styles.ul_1}>
+              <li>Hotline: {contact.phone}</li>
               <li>
-                Thanh Xuân, Hà Nội
-              </li>
-              <li>Hotline: 09389252913</li>
-              <li>
-                Email: <a href="mailto:info@edusun.vn">demo@gmail.com</a>
-              </li>
-              <li>
-                Website: <a href="https://edusun.vn">https://demo.com</a>
+                Email: <a href="mailto:info@edusun.vn">{contact.email}</a>
               </li>
             </ul>
           </div>
@@ -59,11 +58,11 @@ const Footer = async (props: IFooterProps) => {
         </div>
         <div className={styles.div_4}>
           <div>
-            <h3 className={styles.follow}>Theo dõi chúng tôi</h3>
+            <h3 className={styles.follow}>{webInfo[0]?.contact.companyName}</h3>
             <div className={styles.social}>
               <a href="#" target="_blank" rel="noreferrer">
                 <img
-                  src="/static/img/logo.png" 
+                  src={webInfo[0]?.logo ?? "/static/img/logo.png"}
                   alt="fanpage"
                   width={271}
                   height={135}

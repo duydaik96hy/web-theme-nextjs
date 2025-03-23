@@ -52,7 +52,7 @@ const RootLayout = async ({ children }: React.PropsWithChildren) => {
           <Col xs={23} sm={23} md={22} lg={22} xl={20} className={styles.mx_auto}>
             {children}
           </Col>
-          <Footer />
+          <Footer hostName={headersList.get('host') || ''} />
         </AntdRegistry>
       </body>
     </html>
