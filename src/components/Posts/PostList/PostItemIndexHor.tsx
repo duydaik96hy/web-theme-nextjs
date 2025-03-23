@@ -6,6 +6,7 @@ import { getLocaleDateTime } from '@/helpers/time';
 import { convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { getPostsCategories } from '@/service/posts';
+import styles from './PostItemIndexHor.module.css';
 
 export interface IPostItemIndexHorProps {
     post: IPost;
@@ -24,7 +25,7 @@ const PostItemIndexHor = async ({ post, index, isShowDescriptionAndTime = true }
     return (
         <Link
             href={ href }
-            className={'cursor-pointer text-black hover:text-black p-2 flex items-center'}
+            className={styles.link_1}
         >
             <div>
                 <Avatar size={40} style={{
@@ -34,7 +35,7 @@ const PostItemIndexHor = async ({ post, index, isShowDescriptionAndTime = true }
                 </Avatar>
             </div>
             <h2
-                className="font-semibold text-base hover:text-red-500 overflow-hidden pl-4"
+                className={styles.h2_1}
                 style={{
                     display: '-webkit-box',
                     WebkitLineClamp: 2,

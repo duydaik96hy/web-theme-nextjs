@@ -2,6 +2,7 @@ import React from 'react';
 import PostItemHor from './PostItemHor';
 import { Col, Row } from 'antd';
 import { IPost } from '@/types/post';
+import styles from './PostListHor.module.css';
 
 export interface IPostListHorProps {
     posts: IPost[];
@@ -10,7 +11,7 @@ export interface IPostListHorProps {
 
 const PostListHor = ({ posts, isShowDescriptionAndTime = true }: IPostListHorProps) => {
     return (
-        <Row gutter={[8, 8]} className="w-full divide-y divide-gray-300">
+        <Row gutter={[8, 8]} className={styles.row_1}>
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Col span={24} key={post.id}>

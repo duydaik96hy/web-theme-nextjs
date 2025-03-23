@@ -1,0 +1,11 @@
+.link_1 {@apply cursor-pointer text-black hover:text-black}
+.col_1 {@apply justify-center}
+.wFull {@apply w-full}
+.image_1 {
+    object-fit: fill;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+.h2_1 {@apply font-semibold text-lg text-justify hover:text-red-500 overflow-hidden}
+.description_1 {@apply text-justify line-clamp-3}
+.time_1 {@apply pt-2}

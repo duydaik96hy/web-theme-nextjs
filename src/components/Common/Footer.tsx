@@ -3,6 +3,7 @@ import { getPostsCategories } from '@/service/posts';
 import { IPostCategory } from '@/types/post';
 import Link from 'next/link';
 import React from 'react';
+import styles from './common.module.css';
 
 export interface IFooterProps {}
 
@@ -18,21 +19,21 @@ const Footer = async (props: IFooterProps) => {
   }));
   
   return (
-    <footer className="bg-[#DD162A] py-[18px] flex justify-center mt-auto">
-      <section className="max-w-[1162px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-4 sm:mx-8 lg:mx-0">
-        <div className="flex justify-center items-center">
+    <footer className={styles.footer_1}>
+      <section className={styles.section_1}>
+        <div className={styles.div_1}>
           <img
             src="/static/img/logo.png"
             alt="Edusun logo"
             width="271"
             height="120"
-            className="w-[200px] h-[90px] lg:w-[271px] lg:h-[120px]"
+            className={styles.img_1}
           />
         </div>
-        <div className="flex justify-center sm:justify-start lg:justify-center">
+        <div className={styles.div_2}>
           <div>
-            <h3 className="text-white text-xl mb-2">Thông tin liên hệ</h3>
-            <ul className="text-white text-[85%] space-y-1">
+            <h3 className={styles.h3_1}>Thông tin liên hệ</h3>
+            <ul className={styles.ul_1}>
               <li>
                 Thanh Xuân, Hà Nội
               </li>
@@ -46,27 +47,27 @@ const Footer = async (props: IFooterProps) => {
             </ul>
           </div>
         </div>
-        <div className="flex sm:justify-start md:justify-center lg:justify-center">
+        <div className={styles.div_3}>
           <div>
-            <h3 className="text-white text-xl mb-2">Truy cập nhanh</h3>
-            <ul className="text-white text-[85%] space-y-1">
+            <h3 className={styles.h3_1}>Truy cập nhanh</h3>
+            <ul className={styles.ul_1}>
               {items.map((item) => (
                 <li key={item.key}>{item.label}</li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="flex justify-center sm:justify-start lg:justify-center">
+        <div className={styles.div_4}>
           <div>
-            <h3 className="text-white text-xl mb-2 flex justify-center align-center">Theo dõi chúng tôi</h3>
-            <div className="flex justify-center lg:justify-start">
+            <h3 className={styles.follow}>Theo dõi chúng tôi</h3>
+            <div className={styles.social}>
               <a href="#" target="_blank" rel="noreferrer">
                 <img
                   src="/static/img/logo.png" 
                   alt="fanpage"
                   width={271}
                   height={135}
-                  className="w-full max-w-[200px] lg:max-w-none"
+                  className={styles.img_1}
                 />
               </a>
             </div>

@@ -1,0 +1,15 @@
+.link_1 { @apply cursor-pointer text-black hover:text-black }
+.div_1 { @apply grid grid-cols-1 md:text-left md:grid-cols-12 gap-2 pb-2 pt-4}
+.col_1 { @apply justify-center items-center md:col-span-3}
+.img_1 {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem; /* 8px */
+    aspect-ratio: 15 / 9;
+}
+.col_2 { @apply md:col-span-9 flex flex-col justify-between h-full}
+.h2_1 { @apply font-semibold text-base hover:text-red-500 overflow-hidden}
+.desc_1 { @apply line-clamp-3}
+.text_justify { @apply text-justify}
+.time_1 { @apply mt-auto}

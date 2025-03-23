@@ -1,0 +1,2 @@
+.link_1 { @apply cursor-pointer text-black hover:text-black p-2 flex items-center }
+.h2_1 { @apply font-semibold text-base hover:text-red-500 overflow-hidden pl-4}

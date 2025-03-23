@@ -4,6 +4,7 @@ import { IPostCategory } from '@/types/post';
 import { getPostsCategories } from '@/service/posts';
 import { convertTitleToSlug } from '@/helpers/string';
 import { HomeOutlined } from '@ant-design/icons';
+import styles from './menu_header.module.css';
 
 interface IHeaderMenuProps {
     showAuthMenu: boolean;
@@ -32,8 +33,8 @@ const HeaderMenu = async ({ }: IHeaderMenuProps) => {
     items.unshift(homeItem);
 
     return (
-        <nav className="w-full sticky top-0 z-50 custom-navbar">
-            <div className="flex px-4 py-2 space-x-4 overflow-x-auto scrollbar-hide justify-center">
+        <nav className={styles.nav_1}>
+            <div className={styles.nav_div_1}>
                 <MenuItemsHeader items={items} />
             </div>
         </nav>

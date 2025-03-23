@@ -1,0 +1,20 @@
+ /* Footer */
+.footer_1 {@apply bg-[#DD162A] py-[18px] flex justify-center mt-auto}
+.section_1 {@apply max-w-[1162px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-4 sm:mx-8 lg:mx-0}
+.div_1 {@apply flex justify-center items-center}
+.img_1 {@apply w-[200px] h-[90px] lg:w-[271px] lg:h-[120px]}
+.div_2 {@apply flex justify-center sm:justify-start lg:justify-center}
+.h3_1 {@apply text-white text-xl mb-2}
+.div_3 {@apply flex sm:justify-start md:justify-center lg:justify-center}
+.ul_1 {@apply text-white text-[85%] space-y-1}
+.div_4 {@apply flex justify-center sm:justify-start lg:justify-center}
+.follow {@apply text-white text-xl mb-2 flex justify-center}
+.social {@apply flex justify-center lg:justify-start}
+
+/* MiniTag */
+.mini_tag {@apply px-3 py-[3px] border-slate-300 rounded-full inline-block cursor-pointer text-sm}
+
+/* Pagination */
+.pagi_row_1 {@apply w-full mt-4 justify-center items-center}
+.pagi_div_1 {@apply flex items-center gap-2}
+.pagi_link_1 {@apply rounded-md border border-slate-300 p-2 text-sm transition-all shadow-sm}

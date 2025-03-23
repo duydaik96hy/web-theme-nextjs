@@ -1,5 +1,6 @@
 import { getWebInfo } from "@/service/web";
 import Link from "next/link";
+import styles from "./menu_header.module.css";
 
 interface IHeaderTitleProps {
     hostName: string;
@@ -11,10 +12,10 @@ const HeaderTitle = async ({ hostName }: IHeaderTitleProps) => {
     const logo = webInfo[0]?.logo;
 
     return (
-        <div className="flex justify-center items-center py-4 bg-white" >
-            <Link href="/" className="flex items-center">
-                <img src={logo} alt="logo" className="h-12 w-auto" />
-            </Link><h1 className="text-2xl font-bold text-red-600 ml-4">{webName}</h1>
+        <div className={styles.title_1}>
+            <Link href="/" className={styles.title_link_1}>
+                <img src={logo} alt="logo" className={styles.title_img_1} />
+            </Link><h1 className={styles.title_h1_1}>{webName}</h1>
         </div >
     );
 }

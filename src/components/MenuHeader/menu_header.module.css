@@ -1,0 +1,48 @@
+/* HeaderMenu */
+.nav_1 {
+    width: 100%; /* w-full */
+    position: sticky; /* sticky */
+    top: 0; /* top-0 */
+    z-index: 50;
+    background-color: #ff2a2d !important;
+}
+
+.nav_1 .ant-menu .ant-menu-item {
+    background-color: #ff2a2d !important;
+    /* Màu nền */
+    color: white !important;
+    /* Màu chữ */
+}
+
+.nav_div_1 {
+    display: flex;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem;
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem;
+    gap: 1rem; /* space-x-4 */
+    overflow-x: auto; /* overflow-x-auto */
+    justify-content: center; /* justify-center */
+}
+
+/* Nếu bạn sử dụng plugin scrollbar-hide của Tailwind */
+.nav_div_1::-webkit-scrollbar {
+    display: none; /* scrollbar-hide */
+}
+
+/* HeaderTitle */
+.title_1 {
+    @apply flex justify-center items-center py-4 bg-white
+}
+
+.title_link_1 {
+    @apply flex items-center
+}
+
+.title_img_1 {
+    @apply h-12 w-auto
+}
+
+.title_h1_1 {
+    @apply text-2xl font-bold text-red-600 ml-4
+}

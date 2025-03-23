@@ -1,0 +1,4 @@
+.wFull {@apply w-full}
+.h3_1 {@apply text-xl font-semibold m-2 uppercase underline underline-offset-8 decoration-red-600}
+.row_1 {@apply flex items-stretch w-full divide-x divide-gray-300}
+.col_1 {@apply flex flex-col divide-y divide-gray-300}

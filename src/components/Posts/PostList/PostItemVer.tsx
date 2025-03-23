@@ -6,6 +6,7 @@ import { getLocaleDateTime } from '@/helpers/time';
 import { convertImageUrl, convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { getPostsCategories } from '@/service/posts';
+import styles from './PostItemVer.module.css';
 
 export interface IPostItemVerProps {
     post: IPost;
@@ -23,17 +24,17 @@ const PostItemVer = async ({ post, isShowDescriptionAndTime = true }: IPostItemV
     return (
         <Link
             href={href}
-            className={'cursor-pointer text-black hover:text-black'}
+            className={styles.link_1}
         >
-            <Col className="justify-center pt-2 pb-2">
-                <Space direction="vertical" className="w-full">
+            <Col className={styles.col_1}>
+                <Space direction="vertical" className={styles.wFull}>
                     <img
                         src={convertImageUrl(post?.banner_images[0]?.filename ?? '') ?? "/static/img/logo.png"}
                         alt="post logo"
-                        className="object-fit w-full rounded-lg h-[180px]"
+                        className={styles.image_1}
                     />
                     <h2
-                        className="font-semibold text-lg text-justify hover:text-red-500 overflow-hidden"
+                        className={styles.h2_1}
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 2,
@@ -45,10 +46,10 @@ const PostItemVer = async ({ post, isShowDescriptionAndTime = true }: IPostItemV
                     </h2>
                     {isShowDescriptionAndTime && (
                         <>
-                            <div className="text-l text-justify line-clamp-3 min-h-[4.5em] leading-[1.5em] before:content-['_'] before:opacity-0">
+                            <div className={styles.description_1}>
                                 {post?.description}
                             </div>
-                            <div className="text-l pt-2">
+                            <div className={styles.time_1}>
                                 <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
                             </div>
                         </>

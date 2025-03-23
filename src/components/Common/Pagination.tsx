@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined, DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import { Row } from "antd";
 import Link from "next/link";
-
+import styles from './common.module.css';
 
 export interface IPaginationProps {
     currentPage: number;
@@ -23,8 +23,8 @@ const Pagination = ({ currentPage, totalPages }: IPaginationProps) => {
     };
 
     return (
-        <Row className='w-full mt-4 justify-center items-center'>
-            <div className="flex items-center gap-2">
+        <Row className={styles.pagi_row_1}>
+            <div className={styles.pagi_div_1}>
                 {/* Nút trang đầu */}
                 <Link
                     href={`?page=1`}

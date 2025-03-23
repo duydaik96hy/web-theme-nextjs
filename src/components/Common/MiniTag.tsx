@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './common.module.css';
 
 export interface IMiniTagProps {
   text: string;
@@ -9,7 +10,7 @@ export interface IMiniTagProps {
 const MiniTag = (props: IMiniTagProps) => {
   return (
     <span
-      className="px-3 py-[3px] border-slate-300 rounded-full inline-block cursor-pointer text-sm"
+      className={styles.mini_tag}
       style={{
         backgroundColor: props.color ?? 'white',
         borderWidth: 1,

@@ -1,0 +1,14 @@
+.link_1 {@apply cursor-pointer text-black hover:text-black}
+.div_1 {@apply grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2 pt-2}
+.col_1 {@apply flex justify-center md:col-span-7}
+.div_2 {@apply flex items-center justify-center}
+.img_1 {
+    object-fit: fill;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+.col_2 {@apply md:col-span-5 flex flex-col justify-between h-full}
+.h2_1 {@apply font-semibold text-base hover:text-red-500 overflow-hidden}
+.desc_1 { @apply line-clamp-3}
+.text_justify { @apply text-justify}
+.time_1 { @apply mt-auto}

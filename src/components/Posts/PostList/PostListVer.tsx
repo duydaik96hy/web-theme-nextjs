@@ -2,6 +2,7 @@ import React from 'react';
 import PostItemVer from './PostItemVer';
 import { Col, Row } from 'antd';
 import { IPost } from '@/types/post';
+import styles from './PostListVer.module.css';
 
 export interface IPostListVerProps {
     posts: IPost[];
@@ -10,7 +11,7 @@ export interface IPostListVerProps {
 
 const PostListVer = ({ posts, isShowDescriptionAndTime = true }: IPostListVerProps) => {
     return (
-        <Col span={24} className="w-full divide-y divide-gray-300">
+        <Col span={24} className={styles.col_1}>
             {posts.length > 0 ? (
                 posts.map((post) => (
                     <Row gutter={[8, 8]} key={post.id}>

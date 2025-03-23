@@ -38,12 +38,3 @@ menu {
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-.custom-navbar {
-  background-color: #ff2a2d !important; /* Màu nền */
-}
-
-.custom-navbar .ant-menu-item {
-  background-color: #ff2a2d !important; /* Màu nền */
-  color: white !important; /* Màu chữ */
-}

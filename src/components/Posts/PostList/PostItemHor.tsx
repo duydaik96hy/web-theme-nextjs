@@ -6,6 +6,7 @@ import { getLocaleDateTime } from '@/helpers/time';
 import { convertImageUrl, convertTitleToSlug } from '@/helpers/string';
 import Link from 'next/link';
 import { getPostsCategories } from '@/service/posts';
+import styles from './PostItemHor.module.css';
 
 export interface IPostItemHorProps {
     post: IPost;
@@ -23,21 +24,21 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
     return (
         <Link
             href={href}
-            className={'cursor-pointer text-black hover:text-black'}
+            className={styles.link_1}
         >
-            <div className="grid grid-cols-1 md:text-left md:grid-cols-12 gap-2 pb-2 pt-4">
-                <Col className="justify-center items-center md:col-span-3">
+            <div className={styles.div_1}>
+                <Col className={styles.col_1}>
                     <img
                         src={convertImageUrl(post?.banner_images[0]?.filename ?? '') ?? "/static/img/logo.png"}
                         alt="post logo"
-                        className="object-fill w-full h-full rounded-lg aspect-[15/9]"
+                        className={styles.img_1}
                     />
                 </Col>
-                <Col className="md:col-span-9 flex flex-col justify-between h-full">
+                <Col className={styles.col_2}>
                     {/* Tiêu đề và mô tả */}
                     <div>
                         <h2
-                            className="font-semibold text-base hover:text-red-500 overflow-hidden"
+                            className={styles.h2_1}
                             style={{
                                 display: '-webkit-box',
                                 WebkitLineClamp: 2,
@@ -48,8 +49,8 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
                             {post?.title}
                         </h2>
                         {isShowDescriptionAndTime && (
-                            <div className="text-justify">
-                                <span className="text-l line-clamp-3">
+                            <div className={styles.text_justify}>
+                                <span className={styles.desc_1}>
                                     {post?.description}
                                 </span>
                             </div>
@@ -58,7 +59,7 @@ const PostItemHor = async ({ post, isShowDescriptionAndTime = true }: IPostItemH
 
                     {/* Ngày tháng */}
                     {isShowDescriptionAndTime && (
-                        <div className="text-l mt-auto">
+                        <div className={styles.time_1}>
                             <ClockCircleOutlined />{' '}<span>{getLocaleDateTime(post?.created_at)}</span>
                         </div>
                     )}
