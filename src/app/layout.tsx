@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import HeaderMenu from '@/components/MenuHeader/HeaderMenu';
 import { headers } from 'next/headers';
 import { Roboto_Condensed } from 'next/font/google';
-import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Footer from "@/components/Common/Footer";
 import { Col } from "antd";
 import HeaderTitle from "@/components/MenuHeader/Header";
 import { getWebInfo } from "@/service/web";
+import styles from "./HomePage.module.css";
 
 const roboto = Roboto_Condensed({ subsets: ['latin'] });
 
@@ -49,7 +49,7 @@ const RootLayout = async ({ children }: React.PropsWithChildren) => {
         <AntdRegistry>
           <HeaderTitle hostName={headersList.get('host') || ''} />
           <HeaderMenu showAuthMenu={!isAuthPage} />
-          <Col xs={23} sm={23} md={22} lg={22} xl={20} className="mx-auto">
+          <Col xs={23} sm={23} md={22} lg={22} xl={20} className={styles.mx_auto}>
             {children}
           </Col>
           <Footer />

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { convertTitleToSlug } from '@/helpers/string';
 import PostListHor from '../PostList/PostListHor';
 import PostListVerWithTitle from '../PostListWithTitle/PostListVerWithTitle';
+import styles from './PostDetail.module.css';
 
 export interface IPostDetailProps {
   postId: string;
@@ -21,34 +22,30 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
   const categoryObj = postCategories.find((item) => item.id === post?.category) ?? { name: 'Khác' };
 
   return (
-    <Col span={24} className="w-full">
+    <Col span={24} className={styles.container}>
       <Breadcrumb
         items={[
-          {
-            title: <Link href="/"><HomeOutlined /> Trang chủ</Link>,
-          },
+          { title: <Link href="/"><HomeOutlined /> Trang chủ</Link> },
           { title: <Link href={`/${convertTitleToSlug(categoryObj.name)}`}>{categoryObj.name}</Link> },
           { title: post?.title },
         ]}
-        style={{ fontSize: "16px" }}
         separator=">"
-        className='border-b-2 border-gray-200 mb-4' />
-      <Row gutter={[10, 10]} className="w-full mt-4 mb-4 border-b-2 border-gray-200">
-        <Col sm={24} lg={24} xl={18} className='w-full'>
-          {/* <Row className='border-b-2 border-gray-200 mb-4'>
-                <Col span={24} className='w-full pt-2'>
-                  <span className='text-2xl font-semibold uppercase'>{categoryObj.name}</span>
-                </Col>
-              </Row> */}
+        className={styles.breadcrumb}
+      />
+
+      <Row gutter={[10, 10]} className={styles.contentRow}>
+        <Col sm={24} lg={24} xl={18} className={styles.mainContent}>
           {post ? (
             <PostDetailContent post={post} categoryName={categoryObj.name} />
           ) : (
             <p>Không có dữ liệu</p>
           )}
         </Col>
-        <Col xs={0} sm={0} md={0} lg={0} xl={6} className='w-full border-l-2 border-gray-200 hidden xl:block' style={{ height: '100%', overflow: 'auto' }}>
-          <Space direction="vertical" className="w-full" style={{ overflow: 'auto' }}>
-            <h3 className="text-xl text-center font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Cùng chuyên mục</h3>
+
+        {/* Sidebar Desktop */}
+        <Col xs={0} sm={0} md={0} lg={0} xl={6} className={styles.sidebar}>
+          <Space direction="vertical" className={styles.sidebarContent}>
+            <h3 className={styles.sidebarTitle}>Cùng chuyên mục</h3>
             {sameCategoryPosts.length > 0 ? (
               <PostListVer posts={sameCategoryPosts} isShowDescriptionAndTime={true} />
             ) : (
@@ -56,8 +53,10 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
             )}
           </Space>
         </Col>
-        <Col xs={24} sm={24} md={24} lg={24} xl={0} className='w-full mt-2 pt-4 border-t-2 border-gray-200 xl:hidden' style={{ height: '100%' }}>
-          <h3 className="text-xl text-center font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Cùng chuyên mục</h3>
+
+        {/* Sidebar Mobile */}
+        <Col xs={24} sm={24} md={24} lg={24} xl={0} className={styles.mobileSidebar}>
+          <h3 className={styles.sidebarTitle}>Cùng chuyên mục</h3>
           {sameCategoryPosts.length > 0 ? (
             <PostListHor posts={sameCategoryPosts} isShowDescriptionAndTime={true} />
           ) : (
@@ -65,6 +64,7 @@ const PostDetail = async ({ postId }: IPostDetailProps) => {
           )}
         </Col>
       </Row>
+
       <PostListVerWithTitle posts={topViewsPosts.slice(0, 4)} title="Tin xem nhiều trong chuyên mục" />
     </Col>
   );

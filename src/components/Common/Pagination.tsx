@@ -23,15 +23,12 @@ const Pagination = ({ currentPage, totalPages }: IPaginationProps) => {
     };
 
     return (
-        <Row className={styles.pagi_row_1}>
-            <div className={styles.pagi_div_1}>
+        <Row className={styles.pagi_row}>
+            <div className={styles.pagi_container}>
                 {/* Nút trang đầu */}
                 <Link
                     href={`?page=1`}
-                    className={`rounded-md border border-slate-300 p-2 text-sm transition-all shadow-sm ${currentPage === 1
-                            ? "opacity-50 pointer-events-none"
-                            : "hover:shadow-lg hover:bg-slate-800 hover:border-slate-800 hover:text-white"
-                        }`}
+                    className={`${styles.pagi_button} ${currentPage === 1 ? styles.pagi_button_disabled : ''}`}
                 >
                     <DoubleLeftOutlined />
                 </Link>
@@ -39,10 +36,7 @@ const Pagination = ({ currentPage, totalPages }: IPaginationProps) => {
                 {/* Nút trang trước */}
                 <Link
                     href={`?page=${currentPage - 1}`}
-                    className={`rounded-md border border-slate-300 p-2 text-sm transition-all shadow-sm ${currentPage === 1
-                            ? "opacity-50 pointer-events-none"
-                            : "hover:shadow-lg hover:bg-slate-800 hover:border-slate-800 hover:text-white"
-                        }`}
+                    className={`${styles.pagi_button} ${currentPage === 1 ? styles.pagi_button_disabled : ''}`}
                 >
                     <ArrowLeftOutlined />
                 </Link>
@@ -53,25 +47,19 @@ const Pagination = ({ currentPage, totalPages }: IPaginationProps) => {
                         <Link
                             key={index}
                             href={`?page=${page}`}
-                            className={`px-3 py-2 rounded-md border border-slate-300 text-sm shadow-sm ${page === currentPage
-                                    ? "bg-slate-800 text-white border-slate-800"
-                                    : "hover:shadow-lg hover:bg-slate-800 hover:border-slate-800 hover:text-white"
-                                }`}
+                            className={`${styles.pagi_number} ${page === currentPage ? styles.pagi_number_active : ''}`}
                         >
                             {page}
                         </Link>
                     ) : (
-                        <span key={index} className="px-3 py-2 text-sm text-gray-500">...</span>
+                        <span key={index} className={styles.pagi_ellipsis}>...</span>
                     )
                 ))}
 
                 {/* Nút trang sau */}
                 <Link
                     href={`?page=${currentPage + 1}`}
-                    className={`rounded-md border border-slate-300 p-2 text-sm transition-all shadow-sm ${currentPage >= totalPages
-                            ? "opacity-50 pointer-events-none"
-                            : "hover:shadow-lg hover:bg-slate-800 hover:border-slate-800 hover:text-white"
-                        }`}
+                    className={`${styles.pagi_button} ${currentPage >= totalPages ? styles.pagi_button_disabled : ''}`}
                 >
                     <ArrowRightOutlined />
                 </Link>
@@ -79,16 +67,13 @@ const Pagination = ({ currentPage, totalPages }: IPaginationProps) => {
                 {/* Nút trang cuối */}
                 <Link
                     href={`?page=${totalPages}`}
-                    className={`rounded-md border border-slate-300 p-2 text-sm transition-all shadow-sm ${currentPage >= totalPages
-                            ? "opacity-50 pointer-events-none"
-                            : "hover:shadow-lg hover:bg-slate-800 hover:border-slate-800 hover:text-white"
-                        }`}
+                    className={`${styles.pagi_button} ${currentPage >= totalPages ? styles.pagi_button_disabled : ''}`}
                 >
                     <DoubleRightOutlined />
                 </Link>
             </div>
         </Row>
-    )
-}
+    );
+};
 
 export default Pagination;

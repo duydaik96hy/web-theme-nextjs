@@ -1,2 +1,22 @@
-.link_1 { @apply cursor-pointer text-black hover:text-black p-2 flex items-center }
-.h2_1 { @apply font-semibold text-base hover:text-red-500 overflow-hidden pl-4}
+.link_1 {
+    cursor: pointer;
+    color: black;
+    padding: 0.5rem; /* p-2 */
+    display: flex;
+    align-items: center;
+}
+
+.link_1:hover {
+    color: black;
+}
+
+.h2_1 {
+    font-weight: 600; /* font-semibold */
+    font-size: 1rem; /* text-base */
+    overflow: hidden;
+    padding-left: 1rem; /* pl-4 */
+}
+
+.h2_1:hover {
+    color: #dc2626; /* hover:text-red-500 */
+}

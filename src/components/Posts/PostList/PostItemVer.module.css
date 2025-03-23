@@ -1,12 +1,56 @@
-.link_1 {@apply cursor-pointer text-black hover:text-black}
-.col_1 {@apply justify-center pt-2 pb-2}
-.wFull {@apply w-full}
+.link_1 {
+    cursor: pointer;
+    color: black;
+}
+
+.link_1:hover {
+    color: black;
+}
+
+.col_1 {
+    justify-content: center;
+    padding-top: 0.5rem; /* pt-2 */
+    padding-bottom: 0.5rem; /* pb-2 */
+}
+
+.wFull {
+    width: 100%;
+}
+
 .image_1 {
     object-fit: fill;
     width: 100%;
-    border-radius: 0.5rem;
     height: 180px;
+    border-radius: 0.5rem; /* 8px */
 }
-.h2_1 {@apply font-semibold text-lg text-justify hover:text-red-500 overflow-hidden}
-.description_1 {@apply text-justify line-clamp-3 min-h-[4.5em] leading-[1.5em] before:content-['_'] before:opacity-0}
-.time_1 {@apply pt-2}
+
+.h2_1 {
+    font-weight: 600; /* font-semibold */
+    font-size: 1.125rem; /* text-lg */
+    text-align: justify; /* text-justify */
+    overflow: hidden;
+}
+
+.h2_1:hover {
+    color: #dc2626; /* hover:text-red-500 */
+}
+
+.description_1 {
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 4.5em;
+    line-height: 1.5em;
+    position: relative;
+}
+
+.description_1::before {
+    content: " ";
+    opacity: 0;
+}
+
+.time_1 {
+    padding-top: 0.5rem; /* pt-2 */
+}

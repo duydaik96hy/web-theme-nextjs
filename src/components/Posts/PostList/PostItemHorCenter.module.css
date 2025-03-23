@@ -1,14 +1,86 @@
-.link_1 {@apply cursor-pointer text-black hover:text-black}
-.div_1 {@apply grid grid-cols-1 md:text-left md:grid-cols-12 gap-4 border-b-2 border-gray-300 pb-2 pt-2}
-.col_1 {@apply flex justify-center md:col-span-7}
-.div_2 {@apply flex items-center justify-center}
+.link_1 {
+    cursor: pointer;
+    color: black;
+}
+
+.link_1:hover {
+    color: black;
+}
+
+.div_1 {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+    text-align: left;
+    gap: 1rem; /* gap-4 */
+    border-bottom-width: 2px; /* border-b-2 */
+    border-color: #d1d5db; /* border-gray-300 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    padding-top: 0.5rem; /* pt-2 */
+}
+
+@media (min-width: 768px) {
+    .div_1 {
+        grid-template-columns: repeat(12, minmax(0, 1fr)); /* md:grid-cols-12 */
+    }
+}
+
+.col_1 {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .col_1 {
+        grid-column: span 7 / span 7; /* md:col-span-7 */
+    }
+}
+
+.div_2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .img_1 {
     object-fit: fill;
     width: 100%;
     border-radius: 0.5rem;
 }
-.col_2 {@apply md:col-span-5 flex flex-col justify-between h-full}
-.h2_1 {@apply font-semibold text-base hover:text-red-500 overflow-hidden}
-.desc_1 { @apply line-clamp-3}
-.text_justify { @apply text-justify}
-.time_1 { @apply mt-auto}
+
+.col_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .col_2 {
+        grid-column: span 5 / span 5; /* md:col-span-5 */
+    }
+}
+
+.h2_1 {
+    font-weight: 600; /* font-semibold */
+    font-size: 1rem; /* text-base */
+    overflow: hidden;
+}
+
+.h2_1:hover {
+    color: #dc2626; /* hover:text-red-500 */
+}
+
+.desc_1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* line-clamp-3 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text_justify {
+    text-align: justify;
+}
+
+.time_1 {
+    margin-top: auto;
+}

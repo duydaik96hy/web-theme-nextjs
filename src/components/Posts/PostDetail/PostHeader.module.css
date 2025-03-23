@@ -1,0 +1,23 @@
+/* PostHeader.module.css */
+
+.container {
+    width: 100%;
+}
+
+.title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600; /* font-semibold */
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoText {
+    font-weight: 600; /* font-semibold */
+}
+
+.highlight {
+    color: #ef4444; /* text-red-500 */
+}

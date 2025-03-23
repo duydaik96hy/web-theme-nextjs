@@ -1,1 +1,8 @@
-.row_1 {@apply w-full divide-y divide-gray-300}
+.row_1 {
+    width: 100%; /* w-full */
+    border-top: 1px solid #d1d5db; /* Tương ứng với divide-gray-300 */
+    border-bottom: 1px solid #d1d5db; /* Nếu cần chia cách giữa các phần tử con */
+}
+.row_1 > *:not(:last-child) {
+    border-bottom: 1px solid #d1d5db; /* Chia cách từng phần tử con */
+}

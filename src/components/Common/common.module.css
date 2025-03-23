@@ -1,20 +1,196 @@
- /* Footer */
-.footer_1 {@apply bg-[#DD162A] py-[18px] flex justify-center mt-auto}
-.section_1 {@apply max-w-[1162px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-4 sm:mx-8 lg:mx-0}
-.div_1 {@apply flex justify-center items-center}
-.img_1 {@apply w-[200px] h-[90px] lg:w-[271px] lg:h-[120px]}
-.div_2 {@apply flex justify-center sm:justify-start lg:justify-center}
-.h3_1 {@apply text-white text-xl mb-2}
-.div_3 {@apply flex sm:justify-start md:justify-center lg:justify-center}
-.ul_1 {@apply text-white text-[85%] space-y-1}
-.div_4 {@apply flex justify-center sm:justify-start lg:justify-center}
-.follow {@apply text-white text-xl mb-2 flex justify-center}
-.social {@apply flex justify-center lg:justify-start}
+/* Footer */
+.footer_1 {
+    background-color: #DD162A;
+    padding: 18px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.section_1 {
+    max-width: 1162px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 0 16px;
+}
+
+@media (min-width: 640px) {
+    .section_1 {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section_1 {
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0;
+    }
+}
+
+.div_1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_1 {
+    width: 200px;
+    height: 90px;
+}
+
+@media (min-width: 1024px) {
+    .img_1 {
+        width: 271px;
+        height: 120px;
+    }
+}
+
+.div_2 {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .div_2 {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .div_2 {
+        justify-content: center;
+    }
+}
+
+.h3_1 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.div_3 {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .div_3 {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 768px) {
+    .div_3 {
+        justify-content: center;
+    }
+}
+
+.ul_1 {
+    color: white;
+    font-size: 85%;
+    line-height: 1.5;
+}
+
+.div_4 {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .div_4 {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .div_4 {
+        justify-content: center;
+    }
+}
+
+.follow {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .social {
+        justify-content: flex-start;
+    }
+}
 
 /* MiniTag */
-.mini_tag {@apply px-3 py-[3px] border-slate-300 rounded-full inline-block cursor-pointer text-sm}
+.mini_tag {
+    padding: 3px 12px;
+    border: 1px solid #CBD5E0;
+    border-radius: 9999px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
 
 /* Pagination */
-.pagi_row_1 {@apply w-full mt-4 justify-center items-center}
-.pagi_div_1 {@apply flex items-center gap-2}
-.pagi_link_1 {@apply rounded-md border border-slate-300 p-2 text-sm transition-all shadow-sm}
+.pagi_row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagi_container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pagi_button {
+    border-radius: 6px;
+    border: 1px solid #cbd5e1; /* border-slate-300 */
+    padding: 6px 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagi_button:hover {
+    background-color: #1e293b; /* bg-slate-800 */
+    border-color: #1e293b;
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pagi_button_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.pagi_number {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagi_number_active {
+    background-color: #1e293b;
+    color: white;
+    border-color: #1e293b;
+}
+
+.pagi_ellipsis {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #64748b;
+}
+

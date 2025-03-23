@@ -5,11 +5,13 @@ import { getPostsCategories, getRecentPosts, getTopViewsPosts } from '@/service/
 import PostItemVer from '@/components/Posts/PostList/PostItemVer';
 import PostListVerWithTitle from '@/components/Posts/PostListWithTitle/PostListVerWithTitle';
 import { IPostsCategoryData } from '@/types/post';
+import styles from './HomePage.module.css';
 
 export default async function HomePage() {
   const topViewsPosts = (await getTopViewsPosts("limit=4")).data;
   const recentPostsResp = await getRecentPosts("limit=4");
   const recentPosts = recentPostsResp.data;
+  
   /// Get post categories
   let listDataCategory: IPostsCategoryData[] = [];
   const postCategories = await getPostsCategories("");
@@ -20,23 +22,20 @@ export default async function HomePage() {
   listDataCategory = await Promise.all(categoryPromises);
 
   return (
-    <div style={{
-      padding: "8px 0px 24px",
-      overflow: "hidden"
-    }}>
-      <div className="hidden lg:hidden xl:block">
-        <Row gutter={16} className='w-full border-b-2 border-gray-300 pb-4'>
-          <Col xs={24} sm={24} md={24} lg={18} xl={18} className='w-full' style={{ height: 'auto', overflow: 'auto' }}>
+    <div className={styles.container}>
+      <div className={styles.desktopOnly}>
+        <Row gutter={16} className={styles.fullWidth}>
+          <Col xs={24} sm={24} md={24} lg={18} xl={18} className={styles.fullWidth}>
             {recentPosts.length > 0 ? (
               <PostItemVerCenter post={recentPosts[0]} />
             ) : (
               <p style={{ textAlign: "center" }}>Không có bài nào</p>
             )}
           </Col>
-          <Col xs={24} sm={24} md={12} lg={6} xl={6} className='w-full' style={{ height: 'auto', overflow: 'auto' }}>
-            <Row gutter={[8, 8]} className="flex items-stretch w-full divide-y divide-gray-300">
+          <Col xs={24} sm={24} md={12} lg={6} xl={6} className={styles.fullWidth}>
+            <Row gutter={[8, 8]} className={styles.flexStretch}>
               {recentPosts.slice(1, 4).map((post) => (
-                <Col key={post.id} span={24} className="flex flex-col">
+                <Col key={post.id} span={24} className={styles.flexColumn}>
                   <PostItemVer post={post} isShowDescriptionAndTime={false} />
                 </Col>
               ))}
@@ -44,7 +43,7 @@ export default async function HomePage() {
           </Col>
         </Row>
       </div>
-      <div className="lg:block xl:hidden border-b-2 border-gray-300 pb-4">
+      <div className={styles.mobileOnly}>
         {recentPosts.length > 0 ? (
           <PostItemVerCenter post={recentPosts[0]} />
         ) : (
@@ -55,15 +54,6 @@ export default async function HomePage() {
       {listDataCategory.map((item, index) => (
         <PostListVerWithTitle key={index} posts={item.posts} title={item.category.name} />
       ))}
-      {/* <div className="w-full xl:hidden mt-4">
-        <Space direction="vertical" className="w-full">
-          <Col xs={24}>
-            <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin xem nhiều</h3>
-            <PostIndexListHor posts={topViewsPosts} isShowDescriptionAndTime={false} />
-          </Col>
-        </Space>
-      </div> */}
     </div>
   );
-
 };

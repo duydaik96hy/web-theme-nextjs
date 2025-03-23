@@ -32,17 +32,27 @@
 
 /* HeaderTitle */
 .title_1 {
-    @apply flex justify-center items-center py-4 bg-white
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem; /* py-4 */
+    padding-bottom: 1rem;
+    background-color: white;
 }
 
 .title_link_1 {
-    @apply flex items-center
+    display: flex;
+    align-items: center;
 }
 
 .title_img_1 {
-    @apply h-12 w-auto
+    height: 3rem; /* h-12 */
+    width: auto;
 }
 
 .title_h1_1 {
-    @apply text-2xl font-bold text-red-600 ml-4
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: bold;
+    color: #dc2626; /* text-red-600 */
+    margin-left: 1rem; /* ml-4 */
 }

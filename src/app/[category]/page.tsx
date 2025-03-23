@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { HomeOutlined } from '@ant-design/icons';
 import { siteUrl } from '@/constants/common';
 import Pagination from '@/components/Common/Pagination';
+import styles from './CategoryPage.module.css';
 
 interface CategoryPostProps {
     params: { category: string };
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: CategoryPostProps) {
     };
 }
 
-const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
+const CategoryPage = async ({ params, searchParams }: CategoryPostProps) => {
     const { category } = await params;
     const { page } = await searchParams;
     const currentPage = Number(page) || 1;
@@ -67,28 +68,27 @@ const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
     const totalPages = postsPagination.last_page;
 
     return (
-        <div style={{ padding: "0px 0px 24px", overflow: "hidden" }}>
+        <div className={styles.container}>
             <Breadcrumb
                 items={[
                     { title: <Link href="/"><HomeOutlined /> Trang chủ</Link> },
                     { title: categoryObj.name },
                 ]}
                 separator=">"
-                style={{ fontSize: "16px" }}
-                className='border-b-2 border-gray-200 mb-4'
+                className={styles.breadcrumb}
             />
             <Content>
-                <Row gutter={10} className='w-full mt-4'>
-                    <Col xs={24} md={24} lg={18} className='w-full border-r-2 border-gray-200'>
-                        <Space direction="vertical" className="w-full">
+                <Row gutter={10} className={styles.mainContent}>
+                    <Col xs={24} md={24} lg={18} className={styles.leftContent}>
+                        <Space direction="vertical">
                             {posts.length > 0 ? <PostItemHorCenter post={posts[0]} /> : <p>Không có bài viết nào</p>}
 
                             {/* Grid hiển thị bài viết */}
-                            <div className='border-b-2 border-gray-200 mb-4'>
+                            <div className={styles.postGrid}>
                                 <Col xs={0} sm={0} md={24}>
-                                    <Row gutter={8} className="flex items-stretch">
+                                    <Row gutter={8} className={styles.flexContainer}>
                                         {posts.slice(1, 4).map((post) => (
-                                            <Col key={post.id} span={8} className="flex flex-col">
+                                            <Col key={post.id} span={8} className={styles.flexColumn}>
                                                 <PostItemVer post={post} />
                                             </Col>
                                         ))}
@@ -107,10 +107,10 @@ const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
                         <Pagination currentPage={currentPage} totalPages={totalPages} />
                     </Col>
 
-                    <Col xs={24} md={24} lg={6} className='w-full mt-4 lg:mt-0'>
-                        <Space direction="vertical" className="w-full bg-neutral-200 p-4 rounded-lg">
+                    <Col xs={24} md={24} lg={6} className={styles.rightSidebar}>
+                        <Space direction="vertical" className={styles.sidebarBox}>
                             <Col xs={24}>
-                                <h3 className="text-xl font-semibold uppercase underline underline-offset-8 decoration-red-600 mb-2">Tin xem nhiều</h3>
+                                <h3 className={styles.sidebarTitle}>Tin xem nhiều</h3>
                                 {topViewsPosts.length > 0 ? <PostListIndexHor posts={topViewsPosts} /> : <p>Không có bài viết nào</p>}
                             </Col>
                         </Space>
@@ -121,4 +121,4 @@ const HomePage = async ({ params, searchParams }: CategoryPostProps) => {
     );
 };
 
-export default HomePage;
+export default CategoryPage;
